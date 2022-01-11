@@ -1,0 +1,85 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+.header a {
+  display: inline-block;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+.header {
+  background-color: white;
+  position: float;
+  height: 8.5%;
+  width: 100%;
+}
+.mainlogo {
+  height: 55%;
+  width: auto;
+  padding: 0px;
+  margin: 1% 2%;
+}
+.startbar {
+  height: 11.5%;
+  width: 100%;
+  background-color: #564a41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selectContent {
+  background-color: #ccc7c1;
+  height: 73.5%;
+  text-align: center;
+}
+.selectwordKR {
+  height: 50px;
+  font-size: 40px;
+  font-weight: 200;
+  padding-top: 3.5%;
+}
+.selectwordEN {
+  height: 20px;
+  font-size: 15px;
+  padding-top: 1.5%;
+}
+.caffeineButton {
+  display: inline-block;
+  margin: 0px;
+  height: 75%;
+  width: 100%;
+}
+.caffeine {
+  height: 80%;
+  margin: 4% 5%;
+}
+.caffeine:hover {
+  content: url(../image/caffeineHover.png);
+  height: 80%;
+  margin: 4% 5%;
+}
+.noncaffeine {
+  height: 80%;
+  margin: 4% 5%;
+}
+.noncaffeine:hover {
+  content: url(../image/noncaffeineHover.png);
+  height: 80%;
+  margin: 4% 5%;
+}
+.bottombar {
+  height: 6.5%;
+  background-color: #564a41;
+}
+.start {
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #fff;
+}

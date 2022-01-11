@@ -1,0 +1,78 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+.header a {
+  display: inline-block;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+.header {
+  background-color: white;
+  position: float;
+  height: 8.5%;
+  width: 100%;
+}
+.mainlogo {
+  height: 55%;
+  width: auto;
+  padding: 0px;
+  margin: 1% 2%;
+}
+.startbar {
+  height: 11.5%;
+  width: 100%;
+  background-color: #564a41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selectContent {
+  background-color: #ccc7c1;
+  height: 73.5%;
+  text-align: center;
+}
+.selectwordKR {
+  height: 50px;
+  font-size: 40px;
+  font-weight: 200;
+  padding-top: 3.5%;
+}
+.selectwordEN {
+  height: 20px;
+  font-size: 15px;
+  padding-top: 1.5%;
+}
+.beverageName {
+  height: 70%;
+  font-size: 38px;
+  color: #707070;
+}
+.beverageName span {
+  display: inline-block;
+  border-radius: 52px;
+  background-color: #fff;
+  padding: 12px 58px;
+  margin: 1%;
+  font-weight: bold;
+}
+.beverageName span:hover {
+  background-color: rgb(142, 136, 130);
+  color: #fff;
+}
+.bottombar {
+  height: 6.5%;
+  background-color: #564a41;
+}
+.start {
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #fff;
+}

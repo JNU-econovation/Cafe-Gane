@@ -1,0 +1,51 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+.header a {
+  display: inline-block;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+.header {
+  background-color: white;
+  position: float;
+  height: 8.5%;
+  width: 100%;
+}
+.mainlogo {
+  height: 55%;
+  width: auto;
+  padding: 0px;
+  margin: 1% 2%;
+}
+.showbar {
+  height: 11.5%;
+  width: 100%;
+  background-color: #564a41;
+}
+.bottombar {
+  height: 6.5%;
+  background-color: #564a41;
+}
+.showbar i,
+span {
+  display: inline-block;
+  margin: 5px;
+}
+.showWhatSelect {
+  text-align: center;
+}
+.backWard,
+.showWhatSelect {
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #fff;
+}
