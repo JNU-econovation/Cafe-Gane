@@ -11,7 +11,7 @@ module.exports = {
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-         <title>카페가네</title>
+          <title>카페가네</title>
           <body>
           ${body}
           </body>
@@ -19,7 +19,7 @@ module.exports = {
         <body>
         </body>
       </html>
-    `;]
+    `;
   },
   makeMenuHTML: function (list) {
     return `
