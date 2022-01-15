@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 
 /*'app.get("cafecane.com/caffeineMenu/", (req, res) => {
   const hashTagHTML = makeHashTagHTML(hashTagList);
@@ -19,6 +20,7 @@ app.get("cafecane.com/coffeeMenu/:hashTag", (req, res) => {
 });*/
 
 app.get("/caffeineMenu/", (req, res) => {
+  const caffeinList = ["아메리카노", "카페라떼"];
   const caffeineListHTML = makeCaffeineListHTML(caffeineList);
   const menubodyHTML = makeMenuHTML(caffeineListHTML);
   const menuHTML = makeHTML(menubodyHTML);
