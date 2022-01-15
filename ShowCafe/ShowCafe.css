@@ -43,6 +43,36 @@ span {
 .showWhatSelect {
   text-align: center;
 }
+.detail {
+  background-color: white;
+}
+p {
+  margin: 0;
+}
+.hashtag span {
+  display: inline-block;
+  border-radius: 52px;
+  background-color: #d1d1d1;
+  padding: 8px 50px;
+  margin: 0.5%;
+  font-weight: bold;
+  /* width로 길이 지정해주기*/
+}
+.maincontent {
+  background-color: #ccc7c1;
+  text-align: center;
+  height: 700px;
+}
+.cafelist,
+.showcafe {
+  width: 30%;
+  height: 550px;
+  background-color: white;
+  margin: 75px 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 17px;
+}
 .backWard,
 .showWhatSelect {
   font-size: 22px;
