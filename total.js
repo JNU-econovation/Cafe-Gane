@@ -19,9 +19,9 @@ module.exports = {
         <body>
         </body>
       </html>
-    `;
+    `;]
   },
-  makeMenuHTML: function () {
+  makeMenuHTML: function (list) {
     return `
     <div class="header">
     <a href="../startPage/startPage.html">
@@ -43,11 +43,8 @@ module.exports = {
       Please choose beverage
     </div>
     <div class="beverageName">
-      <span><a href="../ShowCafe/ShowCafe.html" style="text-decoration: none; color: #707070;">아메리카노</a></span>
-
+${list}
     </div>
-
-
   </div>
 
   <div class="bottombar">
@@ -121,7 +118,7 @@ module.exports = {
         `${caffeine}</a></span>`
       //앵커를 어떻게 내려야 하나?? ShowCafe/Americano?선택한 해시태그?
       //그렇다면 여기는 `/ShowCafe/${Americano}` 라고 되어야 하는거 아닐까?
-      //아메리카노를 클릭할 경우 <span><a href="/americano?caffeine=1>"
+      //아메리카노를 클릭할 경우 <span><a href="/americano?caffeine=1>" or local.host3000/caffeine/americano
     )}
   `;
   },
