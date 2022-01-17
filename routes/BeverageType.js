@@ -18,11 +18,11 @@ router.get('/CaffeinMenu',function(req,res){
             var datalist=[];
             for(var data of result){
                 datalist.push(data.type);
-                const caffeineListHTML = total.makeCaffeineListHTML(datalist);
-                const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
-                const menuHTML = total.makeHTML(menubodyHTML);
-                return res.send(menuHTML); 
             }
+            const caffeineListHTML = total.makeCaffeineListHTML(datalist);
+            const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
+            const menuHTML = total.makeHTML(menubodyHTML);
+            return res.send(menuHTML); 
 
         }
         
@@ -39,11 +39,11 @@ router.get('/NonCaffeinMenu',function(req,res){
             var datalist=[];
             for(var data of result){
                 datalist.push(data.type);
-                const caffeineListHTML = total.makeCaffeineListHTML(datalist);
-                const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
-                const menuHTML = total.makeHTML(menubodyHTML);
-                res.send(menuHTML); 
             }
+            const caffeineListHTML = total.makeCaffeineListHTML(datalist);
+            const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
+            const menuHTML = total.makeHTML(menubodyHTML);
+            res.send(menuHTML); 
         }
     });
 });
