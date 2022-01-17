@@ -1,32 +1,29 @@
-var express=require('express');
-var morgan=require('morgan')
-var bodyparser=require('body-parser');
-var app=express();
+const express = require("express");
+const http = require("http");
+//const expressErrorHandler = require("express-error-handler");
+const static = require("serve-static");
+const fs = require("fs");
+const path = require("path");
+const logger = require("morgan");
+const bodyparser=require("body-parser");
 
-app.use(express.static('public'));
+const app=express();
+const router=express.Router();
+
+app.use(express.static('client'));
+app.use(logger());
+app.set('view engine','ejs');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
-app.set('view engine','ejs');
 
 
-app.post('/email_post',function(req,res){
-    console.log("req.body");
-    res.send("<hi>welcone!"+req.body.email+"</hi>");
-})
+const IsCaffeineRouter=require("./routes/IsCaffeine")
+app.use('/',IsCaffeineRouter);
 
-var p1=require('./routes/p1.js');
-app.use('/p1',p1);
+const BeverageTypeRouter=require("./routes/BeverageType");
+app.use('/',BeverageTypeRouter);
 
-var p2=require('./routes/p2.js');
-app.use('/p2',p2);
-
-
-
-app.use(function(req,res,next){
-    response.status(404).send('sorry');
-})
 
 app.listen(3000,function(req,res){
-    console.log("connected");
+    console.log("connected 3000 port!");
 });
-
