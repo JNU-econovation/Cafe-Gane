@@ -8,7 +8,7 @@ const Connection = require('mysql/lib/Connection');
 var conn=mysqlConnection.init();
 mysqlConnection.open(conn);
 
-//카페인 음료 종류 
+//카페인 음료 종류 보내기
 router.get('/CaffeinMenu',function(req,res){
     var CaffeinType='SELECT distinct type from cafe.menu where isCaffein=1';
     conn.query(CaffeinType,function(err,result){
@@ -29,7 +29,7 @@ router.get('/CaffeinMenu',function(req,res){
     });
 });
 
-//논카페인 음료 종류
+//논카페인 음료 종류 보내기
 router.get('/NonCaffeinMenu',function(req,res){
     var DeCaffeinType='SELECT type FROM cafe.menu WHERE isCaffein=0';
     conn.query(DeCaffeinType,function(err,result){
