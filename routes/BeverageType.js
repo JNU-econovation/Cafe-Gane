@@ -1,7 +1,7 @@
 var express=require('express');
 var router=express.Router();
 
-const total=require("../public/js/total.js");
+const total=require("../client/total.js");
 
 var mysqlConnection=require("../model/database.js");
 const Connection = require('mysql/lib/Connection');
