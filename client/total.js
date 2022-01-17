@@ -1,30 +1,120 @@
 module.exports = {
-  makeHTML: function (body) {
+  makeStartHTML: function () {
     return `
-      <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link href="../selectCaffeinePage/selectCaffeinePage.css" rel="stylesheet">
-          <link rel="preconnect" href="https://fonts.googleapis.com">
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-          <title>카페가네</title>
-          <body>
-          ${body}
-          </body>
-        </head>
-        <body>
-        </body>
-      </html>
+    <!DOCTYPE html>
+      <html lang="en">
+      
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>카페가네</title>
+        <link href="../Start/Start.css" rel="stylesheet">
+        <script src="../Start/fullpage.min.js"></script>
+        <script src="../Start/Fullpage1.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      </head>
+      
+      <body>
+        <div class="header">
+          <a href="/">
+            <img class="mainlogo" src="../image/mainlogo.png">
+          </a>
+        </div>
+        <div id="full-page">
+      
+      
+          <div class="section s0">
+            <div class="content">
+            <div class="wrap">
+              <p id="dynamic" class="lg-text">
+              </p>
+              <p class="sm-text">
+                당신에게 카페를 선물합니다.
+              </p>
+            
+              <div class="startback">
+                <span class="start">
+                  <a href="/IsCaffeine" style="text-decoration: none; color: white;">
+                    START
+                  </a>
+      
+                </span>
+              </div>
+              
+            </div>
+            
+              <img class="illustrate" src="../image/mainillustrate.png" >
+        
+          </div>
+          </div>
+      
+          <div class="section s1">
+            <h2>
+              카페가네 기획 소개
+            </h2>
+            <h3>
+              음료를 기반으로 카페를 찾아주는 웹페이지
+            </h3>
+          </div>
+      
+          <div class="section s2">
+            <h2>
+              김가네 소개
+            </h2>
+          </div>
+      
+        </div>
+      
+        <script src="../Start/Fullpage1.js">
+        </script>
+        <script>
+          new fullpage('#full-page', {
+            licenseKey: '',
+            sectionsColor: ['rgb(173, 162, 152)', 'rgb(87, 74, 65)', 'rgb(125, 121, 118)'],
+            navigation: true,
+            navigationTooltips: ['StartPage', 'About', 'About2'],
+            scrollingSpeed: 1500,
+            onLeave: function (origin, destination, direction) {
+              if (origin.index == 1) {
+                $('.s1 h3').hide();
+              }
+            },
+            afterLoad: function (origin, destination, direction) {
+              if (destination.index == 1) {
+                $('.s1 h3').show();
+              }
+            }
+          });
+        </script>
+      </body>
+  
+  </html>
     `;
   },
-  makeMenuHTML: function (list) {
+  //인장에 num을 넣어서 caffeine은 1 noncaffeine은 0으로 하고 싶은데...
+  //감이 잘 안잡힌다
+  makeIsCaffeineHTML: function () {
     return `
-    <div class="header">
-    <a href="../startPage/startPage.html">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카페가네</title>
+  <link href="../IsCaffeine/IsCaffeine.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+  </script>
+</head>
+
+<body>
+  <div class="header">
+    <a href="/" style="text-decoration: none; color: white">
       <img class="mainlogo" src="../image/mainlogo.png">
     </a>
   </div>
@@ -36,14 +126,19 @@ module.exports = {
 
   <div class="selectContent">
     <div class="selectwordKR">
-      <span style="background-color: #ffa455;"><strong>음료</strong></span>를 선택해주세요
-      <hr style="border: 0.5px solid black; margin:0.5% auto" width="400px">
+      <span style="background-color: #ffa455;"><strong>카페인 여부</strong></span>를 선택해주세요
+      <hr style="border: 0.5px solid black; margin:0.5% auto" width="480px">
     </div>
     <div class="selectwordEN">
-      Please choose beverage
+      Please choose caffeine or not
     </div>
-    <div class="beverageName">
-${list}
+    <div class="caffeineButton">
+      <a href="/Iscaffeine=1">
+        <img class="caffeine" src="../image/caffeine.png" >
+      </a>
+      <a href="/Iscaffeine=0">
+        <img class="noncaffeine" src="../image/noncaffeine.png">
+      </a>
     </div>
   </div>
 
@@ -52,12 +147,70 @@ ${list}
   </div>
 
 
+</body>
+
+</html>
+    `;
+  },
+  makeMenuHTML: function (list) {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>카페가네</title>
+      <link href="../Menu/Menu.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+      </script>
+    </head>
+    
+    <body>
+      <div class="header">
+        <a href="/">
+          <img class="mainlogo" src="../image/mainlogo.png">
+        </a>
+      </div>
+      <div class="startbar">
+        <span class="start">
+          맞춤형 CAFE 찾기, Start!
+        </span>
+      </div>
+    
+      <div class="selectContent">
+        <div class="selectwordKR">
+          <span style="background-color: #ffa455;"><strong>음료</strong></span>를 선택해주세요
+          <hr style="border: 0.5px solid black; margin:0.5% auto" width="400px">
+        </div>
+        <div class="selectwordEN">
+          Please choose beverage
+        </div>
+        <div class="beverageName">
+          ${list}
+    
+        </div>
+    
+    
+      </div>
+    
+      <div class="bottombar">
+    
+      </div>
+    
+    
+    </body>
+    
+    </html>
     `;
   },
   makeShowCafeHTML: function (change) {
     return `
     <div class="header">
-    <a href="../Start/Start.html">
+    <a href="/">
       <img class="mainlogo" src="../image/mainlogo.png">
     </a>
   </div>
@@ -95,47 +248,41 @@ ${list}
     return `
     ${noncaffeineList.map(
       (noncaffeine) =>
-        "<span>" +
-        "<a href=" +
-        `/${noncaffeine}?noncaffeine=${noncaffeine}>` +
-        `${noncaffeine}</a></span>`
+      "<a href=" +
+      `"/${noncaffeineList}">` +
+      "<span>" +
+      `${noncaffeineList}` +
+      "</span></a>"
     )}
   `;
+    //내가 /iscaffeine=1`/${}~~~이런식으로 넘겨줘야 하는지 그냥 저렇게만 넘겨주면 이어지는 건지
   },
   makeCaffeineListHTML: function (caffeineList) {
-    //115번째줄 caffeine과 같아야 하는지 달라야 하는지 생각하기
-    //caffeineList 수민이한테 넘겨 받기
-    //아마 수민이가 const caffeineList=["아메리카노", "카페라떼",,,,]
-    //이거 아메리카노를 1, 카페라데를 2 라고 할거면 어떻게 해야할까?
-    //이런식으로 넘겨주겠지?
-    //const hashTagClicked = ""; 재현오빠한테 이건 뭐냐고 물어보기
     return `
     ${caffeineList.map(
-      (caffeine) =>
-        "<span>" +
+      (caffeineList) =>
         "<a href=" +
-        `/${caffeine}?caffeine=${caffeine}>` +
-        `${caffeine}</a></span>`
+        `"/${caffeineList}">` +
+        "<span>" +
+        `${caffeineList}` +
+        "</span></a>"
       //앵커를 어떻게 내려야 하나?? ShowCafe/Americano?선택한 해시태그?
       //그렇다면 여기는 `/ShowCafe/${Americano}` 라고 되어야 하는거 아닐까?
-      //아메리카노를 클릭할 경우 <span><a href="/americano?caffeine=1>" or local.host3000/caffeine/americano
+      //아메리카노를 클릭할 경우 <span><a href="/americano?caffeine=1>" or
+      //local.host3000/caffeine/americano
     )}
   `;
   },
   showWhatSelectHTML: function (Iscaffeine, Menu) {
     //이전에 선택한 값들을 어떻게 기억하고 있느냐??
+    //https://seunghunchan.tistory.com/9
     return `${Iscaffeine}` + ">" + `${Menu}`;
   },
 
   makeHashTagHTML: function (hashTagList) {
     return `
     ${hashTagList.map(
-      (hashTag) =>
-        "<span>" +
-        "<a href=" +
-        `cafecane.com/caffeineMenu?hashTag=${hashTag}>` +
-        //여기서 caffeineMenu는 계속 바뀌는거 아닌가? 그럼 이것 또한 변수로?
-        `${hashTag}</a></span>`
+      (hashTag) => "<button value=" + `"${hashTag}">``${hashTag}` + "</button>"
     )}
   `;
   },

@@ -9,7 +9,7 @@ var conn=mysqlConnection.init();
 mysqlConnection.open(conn);
 
 //카페인 음료 종류 보내기
-router.get('/CaffeinMenu',function(req,res){
+router.get('/IsCaffein=1',function(req,res){
     var CaffeinType='SELECT distinct type from cafe.menu where isCaffein=1';
     conn.query(CaffeinType,function(err,result){
         if(err){
@@ -19,10 +19,13 @@ router.get('/CaffeinMenu',function(req,res){
             for(var data of result){
                 datalist.push(data.type);
             }
+
             const caffeineListHTML = total.makeCaffeineListHTML(datalist);
             const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
-            const menuHTML = total.makeHTML(menubodyHTML);
-            return res.send(menuHTML); 
+            //const caffeineListHTML = total.makeCaffeineListHTML(datalist);
+            //const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
+            //const makeMenuHTML = total.makeHTML(menubodyHTML);
+            return res.send(menubodyHTML); 
 
         }
         
@@ -30,7 +33,7 @@ router.get('/CaffeinMenu',function(req,res){
 });
 
 //논카페인 음료 종류 보내기
-router.get('/NonCaffeinMenu',function(req,res){
+router.get('/IsCaffein=0',function(req,res){
     var DeCaffeinType='SELECT type FROM cafe.menu WHERE isCaffein=0';
     conn.query(DeCaffeinType,function(err,result){
         if(err){
