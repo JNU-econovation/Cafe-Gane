@@ -5,49 +5,30 @@ const total=require("../client/total.js");
 
 var mysqlConnection=require("../model/database.js");
 const Connection = require('mysql/lib/Connection');
-var conn=mysqlConnection.init();aws
+var conn=mysqlConnection.init();
 mysqlConnection.open(conn);
 
 //카페인 음료 종류 보내기
-router.get('/IsCaffeine=1',function(req,res){
-    var CaffeinType='SELECT distinct type from cafe.menu where isCaffein=1';
-    conn.query(CaffeinType,function(err,result){
+router.get('/IsCaffeine/:IsCaffeineNum',function(req,res){
+    var IsCaffeineNum=req.params.IsCaffeineNum;
+    var CaffeinType='SELECT distinct type from cafe.menu where isCaffein=?';
+    conn.query(CaffeinType,IsCaffeineNum,function(err,result){
         if(err){
             console.log("caffeintype error!");
         }else{
             var datalist=[];
             for(var data of result){
                 datalist.push(data.type);
-
-            const caffeineListHTML = total.makeCaffeineListHTML(datalist);
-            const menuHTML = total.makeMenuHTML(caffeineListHTML);
-            return res.send(menuHTML); 
             }
 
-            //const caffeineListHTML = total.makeCaffeineListHTML(datalist);
-            //const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
-            //return res.send(menubodyHTML); 
+            const MenuListHTML = total.makeMenuListHTML(datalist);
+            const rememberHTML=total.makeRememberMenuHTML(datalist);
+            const menuHTML = total.makeMenuHTML(MenuListHTML,IsCaffeineNum,rememberHTML);
+            return res.send(menuHTML);
         }
     })
 });
 
-//논카페인 음료 종류 보내기
-router.get('/IsCaffeine=0',function(req,res){
-    var DeCaffeinType='SELECT distinct type FROM cafe.menu WHERE isCaffein=0';
-    conn.query(DeCaffeinType,function(err,result){
-        if(err){
-            console.log("decaffein type error!");
-        }else{
-            var datalist=[];
-            for(var data of result){
-                datalist.push(data.type);
-            }
-            const caffeineListHTML = total.makeCaffeineListHTML(datalist);
-            const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
-            // const menuHTML = total.makeHTML(menubodyHTML);
-            return res.send(menubodyHTML); 
-        }
-    });
-});
+
 
 module.exports=router;
