@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카페가네</title>
+    <link href="./ShowCafe.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../ShowCafe/ShowCafe.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>카페가네</title>
-  <link href="./ShowCafe.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-  <script src="../ShowCafe/ShowCafe.js">
-  </script>
-</head>
-
-<body>
-  <div class="header">
-    <a href="../Start/Start.html">
-      <img class="mainlogo" src="../image/mainlogo.png">
-    </a>
-  </div>
-  <div class="showbar">
-    <span class="showWhatSelect">
-      카페인 > 아메리카노
-    </span>
-  </div>
-  <div class="detail">
-    <p style="color: #564a41; font-size: 18px; font-weight: 500;">추가 세부설정</p>
-    <p style="color: #707070;  font-size: 15px;">부가적인 설정으로 나만의 음료를 즐겨보세요!</p>
-    <div class="hashtag">
-      <span>asdf</span>
-      <span>adsfasd</span>
-      <br>
-      <span>adfasdf</span>
+  <body>
+    <div class="header">
+      <div onclick="location.href='../Start/Start.html'">
+        <img class="mainlogo" src="../image/mainlogo.png" />
+      </div>
     </div>
-  </div>
-  <div class="maincontent">
-    <div class="cafelist" style="overflow:scroll">
-      <div class="cafe">adsfasdfa</div>
-      <div class="cafe">adsfasdf</div>
-      
-
+    <div class="showbar">
+      <img
+        class="backward"
+        src=" ../image/backward.png"
+        onclick="location.href='../Menu/Menu.html'"
+        height="20px"
+      />
+      <div class="showWhatSelect">Caffeine > 아메리카노</div>
     </div>
-    <div class="showcafe">
-
+    <div class="detail">
+      <div style="color: #564a41; font-size: 18px; font-weight: 500">
+        추가 세부설정
+      </div>
+      <div style="color: #707070; font-size: 15px">
+        부가적인 설정으로 나만의 음료를 즐겨보세요!
+      </div>
+      <div class="hashTagContent">
+        <div class="hashTag" id="꿀">꿀</div>
+        <div class="hashTag" id="헤이즐넛">헤이즐넛</div>
+        <div class="hashTag" id="꿀">꿀</div>
+      </div>
     </div>
-  </div>
+    <div class="maincontent">
+      <div class="cafelist" style="overflow: auto">
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+      </div>
+      <div class="showcafe"></div>
+    </div>
 
-  <div class="bottombar">
-
-  </div>
-
-
-</body>
-
+    <div class="bottombar"></div>
+  </body>
 </html>

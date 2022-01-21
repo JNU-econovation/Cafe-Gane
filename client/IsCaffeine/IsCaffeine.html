@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>카페가네</title>
-  <link href="./IsCaffeine.css" rel="stylesheet">
+  <link href="../IsCaffeine/IsCaffeine.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-  <script src="selcetPage1.js">
   </script>
 </head>
 
 <body>
   <div class="header">
-    <a href="/" style="text-decoration: none; color: white">
+    <div onclick="location.href='\../Start/Start.html'">
       <img class="mainlogo" src="../image/mainlogo.png">
-    </a>
+    </div>
   </div>
   <div class="startbar">
     <span class="start">
@@ -35,20 +34,18 @@
       Please choose caffeine or not
     </div>
     <div class="caffeineButton">
-      <a href="/IsCaffeine=1">
-        <img class="caffeine" src="../image/caffeine.png" >
-      </a>
-      <a href="/IsCaffeine=0">
-        <img class="noncaffeine" src="../image/noncaffeine.png">
-      </a>
+      <div onclick="location.href='/IsCaffeine=1'; sessionStorage.setItem('isCaffeine', '1')">
+        <img class="caffeine"  src="../image/caffeine.png" >
+      </div>
+      <div onclick="location.href='/IsCaffeine=0'; sessionStorage.setItem('isCaffeine', '0')">
+        <img class="nonCaffeine" src="../image/noncaffeine.png">
+      </div>
     </div>
   </div>
 
   <div class="bottombar">
 
   </div>
-
-
 </body>
 
 </html>
