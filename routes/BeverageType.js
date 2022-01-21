@@ -5,11 +5,11 @@ const total=require("../client/total.js");
 
 var mysqlConnection=require("../model/database.js");
 const Connection = require('mysql/lib/Connection');
-var conn=mysqlConnection.init();
+var conn=mysqlConnection.init();aws
 mysqlConnection.open(conn);
 
 //카페인 음료 종류 보내기
-router.get('/IsCaffein=1',function(req,res){
+router.get('/IsCaffeine=1',function(req,res){
     var CaffeinType='SELECT distinct type from cafe.menu where isCaffein=1';
     conn.query(CaffeinType,function(err,result){
         if(err){
@@ -18,23 +18,22 @@ router.get('/IsCaffein=1',function(req,res){
             var datalist=[];
             for(var data of result){
                 datalist.push(data.type);
-            }
 
             const caffeineListHTML = total.makeCaffeineListHTML(datalist);
-            const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
+            const menuHTML = total.makeMenuHTML(caffeineListHTML);
+            return res.send(menuHTML); 
+            }
+
             //const caffeineListHTML = total.makeCaffeineListHTML(datalist);
             //const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
-            //const makeMenuHTML = total.makeHTML(menubodyHTML);
-            return res.send(menubodyHTML); 
-
+            //return res.send(menubodyHTML); 
         }
-        
-    });
+    })
 });
 
 //논카페인 음료 종류 보내기
-router.get('/IsCaffein=0',function(req,res){
-    var DeCaffeinType='SELECT type FROM cafe.menu WHERE isCaffein=0';
+router.get('/IsCaffeine=0',function(req,res){
+    var DeCaffeinType='SELECT distinct type FROM cafe.menu WHERE isCaffein=0';
     conn.query(DeCaffeinType,function(err,result){
         if(err){
             console.log("decaffein type error!");
@@ -45,8 +44,8 @@ router.get('/IsCaffein=0',function(req,res){
             }
             const caffeineListHTML = total.makeCaffeineListHTML(datalist);
             const menubodyHTML = total.makeMenuHTML(caffeineListHTML);
-            const menuHTML = total.makeHTML(menubodyHTML);
-            res.send(menuHTML); 
+            // const menuHTML = total.makeHTML(menubodyHTML);
+            return res.send(menubodyHTML); 
         }
     });
 });

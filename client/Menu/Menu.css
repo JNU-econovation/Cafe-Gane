@@ -42,7 +42,7 @@ body {
 .selectwordKR {
   height: 50px;
   font-size: 40px;
-  font-weight: 200;
+  font-weight: 1000;
   padding-top: 3.5%;
 }
 .selectwordEN {
@@ -51,23 +51,27 @@ body {
   padding-top: 1.5%;
 }
 .beverageName {
-  height: 70%;
-  font-size: 38px;
-  color: #707070;
+  margin: 8% 15%;
 }
-.beverageName span {
+
+.menu {
   display: inline-block;
   border-radius: 52px;
   background-color: #fff;
-  padding: 12px 58px;
+  padding: 12px 50px;
   margin: 1%;
   font-weight: bold;
-  /* width로 길이 지정해주기*/
+  width: 85px;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
 }
-.beverageName span:hover {
-  background-color: rgb(142, 136, 130);
-  color: #fff;
+
+.menu:hover {
+  background: #ffa455;
+  color: black;
 }
+
 .bottombar {
   height: 6.5%;
   background-color: #564a41;

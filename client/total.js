@@ -1,4 +1,9 @@
 module.exports = {
+  makeWhatSelectListHTML: function (select) {
+    let whatSelect = [1];
+    whatSelect = [];
+    whatSelect.push(select);
+  },
   makeStartHTML: function () {
     return `
     <!DOCTYPE html>
@@ -190,7 +195,10 @@ module.exports = {
           Please choose beverage
         </div>
         <div class="beverageName">
-          ${list}
+  
+        ${list}
+    
+          
     
         </div>
     
@@ -244,36 +252,36 @@ module.exports = {
     `;
   },
   //nonCaffeineListHTML도 만들어야 할까? 하나로 해결할 순 없을까?
-  makeNonCaffeineListHTML: function (noncaffeineList) {
+  makeNonCaffeineListHTML: function (nonCaffeineList) {
     return `
-    ${noncaffeineList.map(
-      (noncaffeine) =>
-      "<a href=" +
-      `"/${noncaffeineList}">` +
-      "<span>" +
-      `${noncaffeineList}` +
-      "</span></a>"
+    ${nonCaffeineList.map(
+      (nonCaffeine) =>
+        "<a class='menu' href=" +
+        `"/${nonCaffeine}">` +
+        `${nonCaffeine}` +
+        "</a>"
+      //const whatSelect = document.querySelector(".menu")
+      //whatSelect.addEventListener('click',makeWhatSelectListHTML)
     )}
   `;
+
     //내가 /iscaffeine=1`/${}~~~이런식으로 넘겨줘야 하는지 그냥 저렇게만 넘겨주면 이어지는 건지
   },
   makeCaffeineListHTML: function (caffeineList) {
     return `
-    ${caffeineList.map(
-      (caffeineList) =>
-        "<a href=" +
-        `"/${caffeineList}">` +
-        "<span>" +
-        `${caffeineList}` +
-        "</span></a>"
-      //앵커를 어떻게 내려야 하나?? ShowCafe/Americano?선택한 해시태그?
-      //그렇다면 여기는 `/ShowCafe/${Americano}` 라고 되어야 하는거 아닐까?
-      //아메리카노를 클릭할 경우 <span><a href="/americano?caffeine=1>" or
-      //local.host3000/caffeine/americano
-    )}
+    ${caffeineList
+      .map(
+        (caffeine) =>
+          "<a class='menu' href=" +
+          `"/type={${caffeine}}">` +
+          `${caffeine}` +
+          "</a>"
+      )
+      .join("")}
   `;
   },
-  showWhatSelectHTML: function (Iscaffeine, Menu) {
+
+  makeWhatSelectHTML: function (Iscaffeine, Menu) {
     //이전에 선택한 값들을 어떻게 기억하고 있느냐??
     //https://seunghunchan.tistory.com/9
     return `${Iscaffeine}` + ">" + `${Menu}`;
@@ -282,7 +290,12 @@ module.exports = {
   makeHashTagHTML: function (hashTagList) {
     return `
     ${hashTagList.map(
-      (hashTag) => "<button value=" + `"${hashTag}">``${hashTag}` + "</button>"
+      (hashTagList) =>
+        "<a href=" +
+        `"/${hashTagList}">` +
+        "<div class='menu'>" +
+        `${hashTagList}` +
+        "</div></a>"
     )}
   `;
   },
