@@ -1,25 +1,31 @@
+const { amuguna1 } = require("../MakeMenuHTML");
+const { amuguna2 } = require("../MakeShowCafeHTML");
+
 module.exports = {
-  
-  makeShowCafeHTML: function (whatSelect,change) {
+  makeBodyHTML: function (body) {
     return `
     <!DOCTYPE html>
     <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>카페가네</title>
-        <link href="./ShowCafe.css" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
-          rel="stylesheet"
-        />
-        <script src="../ShowCafe/ShowCafe.js"></script>
-      </head>
-    
-      <body>
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>카페가네</title>
+      <link href="../Menu/Menu.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+      <script src="../Menu/Menu.js></script>
+      <script src="../ShowCafe/ShowCafe.js></script>
+    </head>
+    <body>
+      ${body}
+    </body>
+    </html>
+    `;
+  },
+  makeShowCafeHTML: function (whatSelect, change) {
+    return `
         <div class="header">
           <div onclick="location.href='/'">
             <img class="mainlogo" src="../image/mainlogo.png" />
@@ -29,7 +35,9 @@ module.exports = {
           <img
             class="backward"
             src=" ../image/backward.png"
-            onclick="location.href='/IsCaffeine=${sessionStorage.getItem("IsCaffeine")}}'"
+            onclick="location.href='/IsCaffeine=${sessionStorage.getItem(
+              "IsCaffeine"
+            )}}'"
             height="20px"
           />
           <div class="showWhatSelect">${whatSelect}</div>
@@ -63,87 +71,7 @@ module.exports = {
           </div>
           <div class="showcafe"></div>
         </div>
-        <div class="bottombar"></div>
-      </body>
-    </html>
-    
+        <div class="bottombar"></div> 
     `;
-  },
-
-  makeRememberMenuHTML: function (menuList) {
-    return `
-    ${menuList
-      .map(
-        (list) =>
-          "<script>" +
-          "let menu" +
-          list +
-          "= document.querySelector('#" +
-          list +
-          "'); " +
-          "menu" +
-          list +
-          ".onclick=function(){" +
-          "sessionStorage.setItem('menu', event.target.textContent);" +
-          "}" +
-          "</script>"
-      )
-      .join("")}
-  `;
-  },
-  makeMenuListHTML: function (menuList) {
-    return `
-    ${menuList
-      .map(
-        (list) =>
-          "<a class='menu' id='" +
-          list +
-          "' href=" +
-          "/BeforeHash?IsCaffeine="+
-          sessionStorage.getItem("isCaffeineNum")+
-          "&type=" +
-          list +
-          ">" +
-          list +
-          "</a>"
-      )
-      .join("")}
-  `;
-  // /BeforeHash?IsCaffeine=1&type=아메리카노
-  // /AfterHash?IsCaffeine=1&type=아메리카ㅌ노&hash=꿀, 헤이즐넛
- 
-  },
-  makeWhatSelectHTML: function () {
-    const isCaffeineNum = sessionStorage.getItem("isCaffeineNum");
-    const menu = sessionStorage.getItem("menu");
-    const isCaffeine;
-    if (isCaffeineNum === 1){
-     isCaffeine = "카페인";
-    }
-    else{
-     isCaffeine = "논카페인"
-    }
-   
-    return `${isCaffeine}` + ">" + `${menu}`;
-  },
-
-  makeHashTagHTML: function (hashTagList) {
-    return `
-    ${hashTagList
-      .map(
-        (list) =>
-          "<a class='hashTag' id='" +
-          list +
-          "' href=" +
-          "/" +
-          list +
-          "style='cursor:pointer'>" +
-          list +
-          "</a>"
-        //const whatSelect = document.querySelector(".menu")
-        //whatSelect.addEventListener('click',makeWhatSelectListHTML)
-      )
-      .join("")}
-  `;
   },
 };

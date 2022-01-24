@@ -12,13 +12,15 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
       rel="stylesheet"
     />
+    <script defer src="../ShowCafe/ShowCafe.js"></script>
   </head>
 
   <body>
     <div class="header">
-      <div onclick="location.href='../Start/Start.html'">
+      <div onclick="location.href='/'">
         <img class="mainlogo" src="../image/mainlogo.png" />
       </div>
+    </div>
     <div class="showbar">
       <img
         class="backward"
@@ -26,7 +28,7 @@
         onclick="location.href='../Menu/Menu.html'"
         height="20px"
       />
-      <div class="showWhatSelect">Caffeine > 아메리카노</div>
+      <div class="showWhatSelect">${}</div>
     </div>
     <div class="detail">
       <div
@@ -43,11 +45,14 @@
         부가적인 설정으로 나만의 음료를 즐겨보세요!
       </div>
       <div class="hashTagContent">
-        <div class="hashTag" id="꿀" >꿀</div>
-        <div class="hashTag" id="헤이즐넛" >헤이즐넛</div>
-        <div class="hashTag" id="과일" >과일</div>
-        <div class="hashTag" id="샤인머스켓" >샤인머스켓</div>
-        <div class="hashTag" id="아이스크림" >아이스크림</div>
+        <div class="hashTag" id="꿀">꿀</div>
+        <div class="hashTag" id="헤이즐넛">헤이즐넛</div>
+        <div class="hashTag" id="꿀">꿀</div>
+        <div class="hashTag" id="꿀">꿀</div>
+        <div class="hashTag" id="헤이즐넛">헤이즐넛</div>
+        <div class="hashTag" id="과일">과일</div>
+        <div class="hashTag" id="샤인머스켓">샤인머스켓</div>
+        <div class="hashTag" id="아이스크림">아이스크림</div>
         <br />
         <div class="selectButton">맞춤카페 찾기</div>
       </div>
@@ -69,42 +74,31 @@
         <div class="cafe"></div>
         <div class="cafe"></div>
         <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
+        <div class="cafe"></div>
       </div>
       <div class="showcafe">
         <div class="cafeImage">
           <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
+          <img src="../image/noInformation.png" />
         </div>
       </div>
-      <img class="floor" src="../image/floor.png" />
     </div>
+    <img class="ShowCafefloor" src="../image/floor.png" />
   </body>
-  <script>
-    const hash = document.querySelectorAll(".hashTag");
-const selectHashTagList = [];
-for (let i = 0; i < hash.length; i++) {
-  hash[i].addEventListener("click", (event) => {
-    if (event.target.className === "hashTag") {
-      event.target.className += "Clicked";
-      selectHashTagList.push(event.target.innerText);
-    } else if (event.target.className === "hashTagClicked") {
-      event.target.className = "hashTag";
-      for (let j = 0; j < selectHashTagList.length; j++) {
-        if (selectHashTagList[j] === event.target.innerText) {
-          selectHashTagList.splice(j, 1);
-        }
-      }
-    }
-  });
-}
-sessionStorage.setItem("hashTag", selectHashTagList);
-console.log(sessionStorage.getItem("hashTag"));
-
-const select = document.querySelector(".selectButton");
-select.onclick = function () {
-  sessionStorage.setItem("hashTag", selectHashTagList);
-  console.log(sessionStorage.getItem("hashTag"));
-  location.href='/?IsCaffeine/${sessionStorage.getItem("IsCaffeine")/type}'
-};
-  </script>
-
 </html>

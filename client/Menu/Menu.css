@@ -24,6 +24,18 @@ body {
   background-color: #564a41;
   display: flex;
 }
+.backward {
+  position: absolute;
+  padding: 2.5% 5%;
+}
+.start {
+  text-align: center;
+  padding: 2% 30%;
+  font-size: 1.2em;
+  letter-spacing: 3px;
+  color: #fff;
+  width: 100%;
+}
 .selectContent {
   background-color: #ccc7c1;
   height: 80%;
@@ -64,11 +76,6 @@ body {
 .menu:hover {
   background: #ffa455;
   color: black;
-}
-
-.bottombar {
-  height: 6.5%;
-  background-color: #564a41;
 }
 .start {
   font-size: 1.5em;

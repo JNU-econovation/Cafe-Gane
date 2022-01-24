@@ -25,7 +25,7 @@ body {
   background-color: #564a41;
 }
 
-.floor {
+.ShowCafefloor {
   width: 100%;
   margin: 0;
   background-color: #ccc7c1;
@@ -48,7 +48,7 @@ body {
   width: 100%;
   background-color: white;
   text-align: center;
-  height: 10%;
+  height: fit-content;
 }
 
 .hashTagContent {
@@ -80,7 +80,7 @@ body {
   width: 12%;
   background-color: #ffa455;
   color: white;
-  font-size: 1ßßem;
+  font-size: 1em;
   padding: 0.5%;
   margin: 1.5%;
   display: inline-block;
@@ -90,17 +90,26 @@ body {
 .maincontent {
   background-color: #ccc7c1;
   text-align: center;
-  height: fit-content;
+  height: 70%;
+  display: inline-block;
 }
 .cafelist,
 .showcafe {
   width: 32%;
-  height: 40%;
+  height: 90%;
   background-color: white;
   margin: 4% 2% 1% 2%;
   display: inline-block;
   border-radius: 17px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
+}
+.cafe {
+  display: inline-block;
+  width: 85%;
+  height: 25%;
+  margin: 8% 0 0 4%;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
+  background-color: #fff;
 }
 .cafelist::-webkit-scrollbar {
   width: 15px;
@@ -116,12 +125,4 @@ body {
 .cafelist::-webkit-scrollbar-track {
   background-color: rgb(243, 241, 240);
   border-radius: 0 17px 17px 0;
-}
-.cafe {
-  display: inline-block;
-  width: 85%;
-  height: 25%;
-  margin: 8% 0 0 4%;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
-  background-color: #fff;
 }

@@ -1,5 +1,3 @@
-const { makeHashTagHTML } = require("../total");
-
 const hash = document.querySelectorAll(".hashTag");
 const selectHashTagList = [];
 for (let i = 0; i < hash.length; i++) {
@@ -17,10 +15,10 @@ for (let i = 0; i < hash.length; i++) {
     }
   });
 }
-sessionStorage.setItem("hashTag", selectHashTagList);
-console.log(sessionStorage.getItem("hashTag"));
 
 const select = document.querySelector(".selectButton");
 select.onclick = function () {
   sessionStorage.setItem("hashTag", selectHashTagList);
+  location.href =
+    "/AfterHash?IsCaffeine=${sessionStorage.getItem('isCaffeine')}&type=${sessionStorage.getItem('menu')}&hash='${sessionStorage.getItem(hash)}";
 };
