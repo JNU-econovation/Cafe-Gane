@@ -19,6 +19,9 @@ for (let i = 0; i < hash.length; i++) {
 const select = document.querySelector(".selectButton");
 select.onclick = function () {
   sessionStorage.setItem("hashTag", selectHashTagList);
-  location.href =
-    "/AfterHash?IsCaffeine=${sessionStorage.getItem('isCaffeine')}&type=${sessionStorage.getItem('menu')}&hash='${sessionStorage.getItem(hash)}";
+  location.href = `"/AfterHash?IsCaffeine=${sessionStorage.getItem(
+    "isCaffeine"
+  )}&type=${sessionStorage.getItem("menu")}&hash='${sessionStorage.getItem(
+    hash
+  )}";`;
 };
