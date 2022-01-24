@@ -12,7 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
       rel="stylesheet"
     />
-    <script src="../ShowCafe/ShowCafe.js"></script>
   </head>
 
   <body>
@@ -20,7 +19,6 @@
       <div onclick="location.href='../Start/Start.html'">
         <img class="mainlogo" src="../image/mainlogo.png" />
       </div>
-    </div>
     <div class="showbar">
       <img
         class="backward"
@@ -31,21 +29,35 @@
       <div class="showWhatSelect">Caffeine > 아메리카노</div>
     </div>
     <div class="detail">
-      <div style="color: #564a41; font-size: 18px; font-weight: 500">
+      <div
+        style="
+          color: #564a41;
+          font-size: 18px;
+          font-weight: 500;
+          margin-top: 1%;
+        "
+      >
         추가 세부설정
       </div>
-      <div style="color: #707070; font-size: 15px">
+      <div style="color: #707070; font-size: 15px; margin-bottom: 1%">
         부가적인 설정으로 나만의 음료를 즐겨보세요!
       </div>
       <div class="hashTagContent">
-        <div class="hashTag" id="꿀">꿀</div>
-        <div class="hashTag" id="헤이즐넛">헤이즐넛</div>
-        <div class="hashTag" id="꿀">꿀</div>
+        <div class="hashTag" id="꿀" >꿀</div>
+        <div class="hashTag" id="헤이즐넛" >헤이즐넛</div>
+        <div class="hashTag" id="과일" >과일</div>
+        <div class="hashTag" id="샤인머스켓" >샤인머스켓</div>
+        <div class="hashTag" id="아이스크림" >아이스크림</div>
+        <br />
+        <div class="selectButton">맞춤카페 찾기</div>
       </div>
     </div>
     <div class="maincontent">
       <div class="cafelist" style="overflow: auto">
-        <div class="cafe"></div>
+        <div class="cafe">
+          <div class="cafeImage"></div>
+          <div class="textcontent"></div>
+        </div>
         <div class="cafe"></div>
         <div class="cafe"></div>
         <div class="cafe"></div>
@@ -58,9 +70,41 @@
         <div class="cafe"></div>
         <div class="cafe"></div>
       </div>
-      <div class="showcafe"></div>
+      <div class="showcafe">
+        <div class="cafeImage">
+          <img src="../image/noInformation.png" />
+        </div>
+      </div>
+      <img class="floor" src="../image/floor.png" />
     </div>
-
-    <div class="bottombar"></div>
   </body>
+  <script>
+    const hash = document.querySelectorAll(".hashTag");
+const selectHashTagList = [];
+for (let i = 0; i < hash.length; i++) {
+  hash[i].addEventListener("click", (event) => {
+    if (event.target.className === "hashTag") {
+      event.target.className += "Clicked";
+      selectHashTagList.push(event.target.innerText);
+    } else if (event.target.className === "hashTagClicked") {
+      event.target.className = "hashTag";
+      for (let j = 0; j < selectHashTagList.length; j++) {
+        if (selectHashTagList[j] === event.target.innerText) {
+          selectHashTagList.splice(j, 1);
+        }
+      }
+    }
+  });
+}
+sessionStorage.setItem("hashTag", selectHashTagList);
+console.log(sessionStorage.getItem("hashTag"));
+
+const select = document.querySelector(".selectButton");
+select.onclick = function () {
+  sessionStorage.setItem("hashTag", selectHashTagList);
+  console.log(sessionStorage.getItem("hashTag"));
+  location.href='/?IsCaffeine/${sessionStorage.getItem("IsCaffeine")/type}'
+};
+  </script>
+
 </html>

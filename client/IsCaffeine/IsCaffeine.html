@@ -15,14 +15,14 @@
 
 <body>
   <div class="header">
-    <div onclick="location.href='\../Start/Start.html'">
+    <div onclick="location.href='/'">
       <img class="mainlogo" src="../image/mainlogo.png">
     </div>
   </div>
   <div class="startbar">
-    <span class="start">
+    <div class="start">
       맞춤형 CAFE 찾기, Start!
-    </span>
+    </div>
   </div>
 
   <div class="selectContent">
@@ -34,16 +34,14 @@
       Please choose caffeine or not
     </div>
     <div class="caffeineButton">
-      <div onclick="location.href='/IsCaffeine=1'; sessionStorage.setItem('isCaffeine', '1')">
+      <div onclick="location.href='/IsCaffeine?IsCaffeine=1'; sessionStorage.setItem('isCaffeine', '1')">
         <img class="caffeine"  src="../image/caffeine.png" >
       </div>
-      <div onclick="location.href='/IsCaffeine=0'; sessionStorage.setItem('isCaffeine', '0')">
+      <div onclick="location.href='/IsCaffeine?IsCaffeine=0'; sessionStorage.setItem('isCaffeine', '0')">
         <img class="nonCaffeine" src="../image/noncaffeine.png">
       </div>
     </div>
-  </div>
-
-  <div class="bottombar">
+    <img class="floor" src="../image/floor.png" />
 
   </div>
 </body>

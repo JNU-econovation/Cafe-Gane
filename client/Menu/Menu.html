@@ -15,14 +15,20 @@
 
 <body>
   <div class="header">
-    <div onclick="location.href='\../Start/Start.html'">
+    <div onclick="location.href='../Start/Start.html'">
       <img class="mainlogo" src="../image/mainlogo.png">
     </div>
   </div>
   <div class="startbar">
-    <span class="start">
+    <img
+    class="backward"
+    src=" ../image/backward.png"
+    onclick="location.href='/IsCaffeine'"
+    height="20px"
+  />
+    <div class="start">
       맞춤형 CAFE 찾기, Start!
-    </span>
+    </div>
   </div>
 
   <div class="selectContent">
@@ -33,24 +39,16 @@
     <div class="selectwordEN">
       Please choose beverage
     </div>
-    <div class="beverageName">
+    <div class="beverageName0">
+      <a class="menu" values="아메리카노" onclick="clickTurnTrue(this);">아메리카노</a>
 
-     
+      
     </div>
+    <img class="floor" src="../image/floor.png" />
 
     </div>
-    <script>
-      let menu = document.querySelectorAll(".menu")
-      menu.onclick=function(){
-        sessionStorage.setItem('menu', event.target.textContent);
-      }
-    </script>
+    
   </div>
-
-  <div class="bottombar">
-
-  </div>
-
 </body>
 
 </html>

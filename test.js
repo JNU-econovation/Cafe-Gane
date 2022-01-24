@@ -24,10 +24,9 @@ app.get("/", function (req, res) {
     "프라페/쉐이크",
   ];
 
-  const hasListHTML = template.makeHashTagHTML(result);
+  const menuListHTML = template.makeMenuListHTML(result);
   const rememberMenuHTML = template.makeRememberMenuHTML(result);
-  const showCafeHTML = template.makeShowCafeHTML(hasListHTML);
-  //1= const isCaffeineNum
+  const showCafeHTML = template.makeMenuHTML(menuListHTML, 1, rememberMenuHTML);
   res.send(showCafeHTML);
 });
 

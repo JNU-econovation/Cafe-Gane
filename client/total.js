@@ -1,233 +1,75 @@
 module.exports = {
-  makeStartHTML: function () {
-    return `
-    <!DOCTYPE html>
-      <html lang="en">
-      
-      <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>카페가네</title>
-        <link href="../Start/Start.css" rel="stylesheet">
-        <script src="../Start/fullpage.min.js"></script>
-        <script src="../Start/Fullpage1.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      </head>
-      <body>
-      <div class="header">
-      <div onclick="location.href='/'">
-        <img class="mainlogo" src="../image/mainlogo.png">
-      </div>
-    </div>
-        <div id="full-page">
-          <div class="section s0">
-            <div class="content">
-            <div class="wrap">
-              <p id="dynamic" class="lg-text">
-              </p>
-              <p class="sm-text">
-                당신에게 카페를 선물합니다.
-              </p>
-            
-              <div class="startback">
-                <span class="start">
-                  <a href="/IsCaffeine" style="text-decoration: none; color: white;">
-                    START
-                  </a>
-      
-                </span>
-              </div>
-              
-            </div>
-            
-              <img class="illustrate" src="../image/mainillustrate.png" >
-        
-          </div>
-          </div>
-      
-          <div class="section s1">
-            <h2>
-              카페가네 기획 소개
-            </h2>
-            <h3>
-              음료를 기반으로 카페를 찾아주는 웹페이지
-            </h3>
-          </div>
-      
-          <div class="section s2">
-            <h2>
-              김가네 소개
-            </h2>
-          </div>
-      
-        </div>
-      
-        <script src="../Start/Fullpage1.js">
-        </script>
-        <script>
-          new fullpage('#full-page', {
-            licenseKey: '',
-            sectionsColor: ['rgb(173, 162, 152)', 'rgb(87, 74, 65)', 'rgb(125, 121, 118)'],
-            navigation: true,
-            navigationTooltips: ['StartPage', 'About', 'About2'],
-            scrollingSpeed: 1500,
-            onLeave: function (origin, destination, direction) {
-              if (origin.index == 1) {
-                $('.s1 h3').hide();
-              }
-            },
-            afterLoad: function (origin, destination, direction) {
-              if (destination.index == 1) {
-                $('.s1 h3').show();
-              }
-            }
-          });
-        </script>
-      </body>
   
-  </html>
-    `;
-  },
-  makeIsCaffeineHTML: function () {
-    return `<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>카페가네</title>
-      <link href="../IsCaffeine/IsCaffeine.css" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-      </script>
-    </head>
-    
-    <body>
-      <div class="header">
-        <div onclick="location.href='/'">
-          <img class="mainlogo" src="../image/mainlogo.png">
-        </div>
-      </div>
-      <div class="startbar">
-        <span class="start">
-          맞춤형 CAFE 찾기, Start!
-        </span>
-      </div>
-    
-      <div class="selectContent">
-        <div class="selectwordKR">
-          <span style="background-color: #ffa455;"><strong>카페인 여부</strong></span>를 선택해주세요
-          <hr style="border: 0.5px solid black; margin:0.5% auto" width="480px">
-        </div>
-        <div class="selectwordEN">
-          Please choose caffeine or not
-        </div>
-        <div class="caffeineButton">
-      <div onclick="location.href='/IsCaffeine=1'; sessionStorage.setItem('isCaffeine', '1')">
-        <img class="caffeine"  src="../image/caffeine.png" >
-      </div>
-      <div onclick="location.href='/IsCaffeine=0'; sessionStorage.setItem('isCaffeine', '0')">
-        <img class="nonCaffeine" src="../image/noncaffeine.png">
-      </div>
-    </div>
-      </div>
-    
-      <div class="bottombar">
-    
-      </div>
-    </body>
-    
-    </html>`;
-  },
-  makeMenuHTML: function (menuList, isCaffeineNum, menuSelect) {
+  makeShowCafeHTML: function (whatSelect,change) {
     return `
     <!DOCTYPE html>
     <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>카페가네</title>
+        <link href="./ShowCafe.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
+          rel="stylesheet"
+        />
+        <script src="../ShowCafe/ShowCafe.js"></script>
+      </head>
     
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>카페가네</title>
-      <link href="../Menu/Menu.css" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-      </script>
-    </head>
-    
-    <body>
-    <div class="header">
-    <div onclick="location.href='/'">
-      <img class="mainlogo" src="../image/mainlogo.png">
-    </div>
-  </div>
-      <div class="startbar">
-        <span class="start">
-          맞춤형 CAFE 찾기, Start!
-        </span>
-      </div>
-    
-      <div class="selectContent">
-        <div class="selectwordKR">
-          <span style="background-color: #ffa455;"><strong>음료</strong></span>를 선택해주세요
-          <hr style="border: 0.5px solid black; margin:0.5% auto" width="400px">
+      <body>
+        <div class="header">
+          <div onclick="location.href='/'">
+            <img class="mainlogo" src="../image/mainlogo.png" />
+          </div>
         </div>
-        <div class="selectwordEN">
-          Please choose beverage
+        <div class="showbar">
+          <img
+            class="backward"
+            src=" ../image/backward.png"
+            onclick="location.href='/IsCaffeine=${sessionStorage.getItem("IsCaffeine")}}'"
+            height="20px"
+          />
+          <div class="showWhatSelect">${whatSelect}</div>
         </div>
-        <div class="beverageName${isCaffeineNum}">
-        ${menuList} 
-        
+        <div class="detail">
+          <div
+            style="
+              color: #564a41;
+              font-size: 18px;
+              font-weight: 500;
+              margin-top: 1%;
+            "
+          >
+            추가 세부설정
+          </div>
+          <div style="color: #707070; font-size: 15px; margin-bottom: 1%">
+            부가적인 설정으로 나만의 음료를 즐겨보세요!
+          </div>
+          <div class="hashTagContent">
+            ${change}
+            <br />
+            <div class="selectButton">맞춤카페 찾기</div>
+          </div>
         </div>
-      </div>
-      ${menuSelect}
-      <div class="bottombar">
-      </div>
-    </body>
-    
+        <div class="maincontent">
+          <div class="cafelist" style="overflow: auto">
+            <div class="cafe">
+              <div class="cafeImage"></div>
+              <div class="textcontent"></div>
+            </div>
+          </div>
+          <div class="showcafe"></div>
+        </div>
+        <div class="bottombar"></div>
+      </body>
     </html>
+    
     `;
   },
-  makeShowCafeHTML: function (change) {
-    return `
-    <div class="header">
-    <div onclick="location.href='\../Start/Start.html'">
-      <img class="mainlogo" src="../image/mainlogo.png">
-    </div>
-  </div>
-  <div class="showbar">
-    <span class="showWhatSelect">
-      카페인 > 아메리카노
-    </span>
-  </div>
-  <div class="detail">
-    <p style="color: #564a41; font-size: 18px; font-weight: 500;">추가 세부설정</p>
-    <p style="color: #707070;  font-size: 15px;">부가적인 설정으로 나만의 음료를 즐겨보세요!</p>
-    <div class="hashtag">
-   ${change}
-    </div>
-  </div>
-  <div class="maincontent">
-    <div class="cafelist" style="overflow:scroll">
 
-      
-
-    </div>
-    <div class="showcafe">
-
-    </div>
-  </div>
-
-  <div class="bottombar">
-
-  </div>
-    `;
-  },
   makeRememberMenuHTML: function (menuList) {
     return `
     ${menuList
@@ -249,8 +91,7 @@ module.exports = {
       .join("")}
   `;
   },
-
-  makeMenuListHTML: function (menuList, caffeineTrue) {
+  makeMenuListHTML: function (menuList) {
     return `
     ${menuList
       .map(
@@ -258,21 +99,32 @@ module.exports = {
           "<a class='menu' id='" +
           list +
           "' href=" +
-          "/type={" +
+          "/BeforeHash?IsCaffeine="+
+          sessionStorage.getItem("isCaffeineNum")+
+          "&type=" +
           list +
-          "}>" +
+          ">" +
           list +
           "</a>"
-        //const whatSelect = document.querySelector(".menu")
-        //whatSelect.addEventListener('click',makeWhatSelectListHTML)
       )
       .join("")}
   `;
+  // /BeforeHash?IsCaffeine=1&type=아메리카노
+  // /AfterHash?IsCaffeine=1&type=아메리카ㅌ노&hash=꿀, 헤이즐넛
+ 
   },
-  makeWhatSelectHTML: function (Iscaffeine, Menu) {
-    //이전에 선택한 값들을 어떻게 기억하고 있느냐??
-    //https://seunghunchan.tistory.com/9
-    return `${Iscaffeine}` + ">" + `${Menu}`;
+  makeWhatSelectHTML: function () {
+    const isCaffeineNum = sessionStorage.getItem("isCaffeineNum");
+    const menu = sessionStorage.getItem("menu");
+    const isCaffeine;
+    if (isCaffeineNum === 1){
+     isCaffeine = "카페인";
+    }
+    else{
+     isCaffeine = "논카페인"
+    }
+   
+    return `${isCaffeine}` + ">" + `${menu}`;
   },
 
   makeHashTagHTML: function (hashTagList) {
@@ -285,7 +137,7 @@ module.exports = {
           "' href=" +
           "/" +
           list +
-          ">" +
+          "style='cursor:pointer'>" +
           list +
           "</a>"
         //const whatSelect = document.querySelector(".menu")

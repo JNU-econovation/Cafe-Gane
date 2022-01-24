@@ -11,75 +11,93 @@ body {
 .header {
   background-color: white;
   position: float;
-  height: 6%;
+  height: fit-content;
   width: 100%;
 }
-.header div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1.4% 1%;
-  height: 60%;
-  width: 11%;
-}
 .mainlogo {
-  height: 100%;
-  width: auto;
-  padding: 0px;
+  width: 8%;
+  padding: 1% 2%;
 }
 .showbar {
   display: flex;
-  height: 11.5%;
+  height: fit-content;
   width: 100%;
   background-color: #564a41;
 }
-.bottombar {
-  height: 6.5%;
-  background-color: #564a41;
+
+.floor {
+  width: 100%;
+  margin: 0;
+  background-color: #ccc7c1;
 }
 .backward {
+  position: absolute;
   padding: 2.5% 5%;
 }
 
 .showWhatSelect {
   text-align: center;
   padding: 2% 30%;
-  font-size: 22px;
+  font-size: 1.2em;
   letter-spacing: 3px;
   color: #fff;
+  width: 100%;
 }
 .detail {
+  display: inline-block;
+  width: 100%;
   background-color: white;
-  padding: 1% 10%;
+  text-align: center;
+  height: 10%;
 }
 
-.hashTag {
+.hashTagContent {
+  width: 70%;
+  display: inline-block;
+}
+
+.hashTag,
+.hashTagClicked {
   display: inline-block;
   border-radius: 52px;
   background-color: #d1d1d1;
-  padding: 6px 15px;
-  margin: 1% 1% 0% 1%;
-  width: 6%;
+  padding: 0.5%;
+  margin: 0.5%;
+  width: 8%;
   font-size: 17px;
   color: white;
   text-decoration: none;
   text-align: center;
+  cursor: pointer;
 }
-.hashTag:hover {
-  background: #ffa455;
+
+.hashTagClicked {
+  background-color: #ffa455;
   color: white;
+}
+.selectButton {
+  border-radius: 52px;
+  width: 12%;
+  background-color: #ffa455;
+  color: white;
+  font-size: 1ßßem;
+  padding: 0.5%;
+  margin: 1.5%;
+  display: inline-block;
+  font-weight: 1000;
+  cursor: pointer;
 }
 .maincontent {
   background-color: #ccc7c1;
   text-align: center;
-  height: 700px;
+  height: fit-content;
 }
 .cafelist,
 .showcafe {
-  width: 30%;
-  height: 550px;
+  width: 32%;
+  height: 40%;
   background-color: white;
-  margin: 75px 10px;
+  margin: 4% 2% 1% 2%;
   display: inline-block;
   border-radius: 17px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
@@ -103,7 +121,7 @@ body {
   display: inline-block;
   width: 85%;
   height: 25%;
-  margin: 5% 5% 0 5%;
+  margin: 8% 0 0 4%;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
   background-color: #fff;
 }
