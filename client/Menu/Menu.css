@@ -16,7 +16,7 @@ body {
 }
 .mainlogo {
   width: 8%;
-  padding: 1% 2%;
+  margin: 1% 2%;
 }
 .startbar {
   height: fit-content;
@@ -40,7 +40,7 @@ body {
   background-color: #ccc7c1;
   height: 80%;
   text-align: center;
-  padding: 0.5% 0;
+  padding: 0;
 }
 .selectwordKR {
   height: 50px;

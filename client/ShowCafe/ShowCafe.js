@@ -18,10 +18,12 @@ for (let i = 0; i < hash.length; i++) {
 
 const select = document.querySelector(".selectButton");
 select.onclick = function () {
+  console.log("호출");
   sessionStorage.setItem("hashTag", selectHashTagList);
-  location.href = `"/AfterHash?IsCaffeine=${sessionStorage.getItem(
+  location.href = `/AfterHash?IsCaffeine=${sessionStorage.getItem(
     "isCaffeine"
-  )}&type=${sessionStorage.getItem("menu")}&hash='${sessionStorage.getItem(
-    hash
+  )}&type=${sessionStorage.getItem("menu")}&hash="${sessionStorage.getItem(
+    "hashTag"
   )}";`;
+  console.log(sessionStorage.getItem("hashTag"));
 };
