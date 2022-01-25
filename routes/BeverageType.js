@@ -8,9 +8,14 @@ const Connection = require('mysql/lib/Connection');
 var conn=mysqlConnection.init();
 mysqlConnection.open(conn);
 
-//카페인 음료 종류 보내기
-router.get('/IsCaffeine/:IsCaffeineNum',function(req,res){
-    var IsCaffeineNum=req.params.IsCaffeineNum;
+//카페인 음료 종류 보내기 
+
+
+/*
+/IsCaffeine?IsCaffein=1
+*/
+router.get('/IsCaffeine',function(req,res){
+    var IsCaffeineNum=req.query.IsCaffeineNum;
     var CaffeinType='SELECT distinct type from cafe.menu where isCaffein=?';
     conn.query(CaffeinType,IsCaffeineNum,function(err,result){
         if(err){
