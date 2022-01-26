@@ -8,36 +8,27 @@ body {
   height: 100%;
   width: 100%;
 }
-.header a {
-  display: inline-block;
-  margin: 0px;
-  height: 100%;
-  width: 100%;
-}
 .header {
   background-color: white;
   position: float;
-  height: 8.5%;
+  height: fit-content;
   width: 100%;
 }
 .mainlogo {
-  height: 55%;
-  width: auto;
-  padding: 0px;
+  width: 8%;
   margin: 1% 2%;
 }
 .startbar {
-  height: 11.5%;
+  height: fit-content;
   width: 100%;
   background-color: #564a41;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .selectContent {
   background-color: #ccc7c1;
-  height: 73.5%;
+  height: 80%;
   text-align: center;
+  padding: 0;
 }
 .selectwordKR {
   height: 50px;
@@ -51,35 +42,48 @@ body {
   padding-top: 1.5%;
 }
 .caffeineButton {
-  display: inline-block;
-  margin: 0px;
-  height: 75%;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.caffeineButton div {
+  margin: 5%;
+  height: 18%;
+  width: 17%;
 }
 .caffeine {
-  height: 80%;
-  margin: 4% 5%;
+  height: 100%;
+  width: 100%;
 }
 .caffeine:hover {
   content: url(../image/caffeineHover.png);
-  height: 80%;
-  margin: 4% 5%;
+  height: 100%;
+  width: 100%;
 }
-.noncaffeine {
-  height: 80%;
-  margin: 4% 5%;
+.nonCaffeine {
+  height: 100%;
+  width: 100%;
 }
-.noncaffeine:hover {
+.nonCaffeine:hover {
   content: url(../image/noncaffeineHover.png);
-  height: 80%;
-  margin: 4% 5%;
+  height: 100%;
+  width: 100%;
 }
 .bottombar {
   height: 6.5%;
   background-color: #564a41;
 }
 .start {
-  font-size: 22px;
+  font-size: 1.5em;
   letter-spacing: 3px;
   color: #fff;
+  text-align: center;
+  padding: 2% 30%;
+  width: 100%;
+}
+.floor {
+  width: 100%;
+  background-color: #ccc7c1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

@@ -8,74 +8,121 @@ body {
   height: 100%;
   width: 100%;
 }
-.header a {
-  display: inline-block;
-  margin: 0px;
-  height: 100%;
-  width: 100%;
-}
 .header {
   background-color: white;
   position: float;
-  height: 8.5%;
+  height: fit-content;
   width: 100%;
 }
 .mainlogo {
-  height: 55%;
-  width: auto;
-  padding: 0px;
+  width: 8%;
   margin: 1% 2%;
 }
 .showbar {
-  height: 11.5%;
+  display: flex;
+  height: fit-content;
   width: 100%;
   background-color: #564a41;
 }
-.bottombar {
-  height: 6.5%;
-  background-color: #564a41;
+
+.ShowCafefloor {
+  width: 100%;
+  margin: 0;
+  background-color: #ccc7c1;
 }
-.showbar i,
-span {
-  display: inline-block;
-  margin: 5px;
+.backward {
+  position: absolute;
+  padding: 2.5% 5%;
 }
+
 .showWhatSelect {
   text-align: center;
+  padding: 2% 30%;
+  font-size: 1.2em;
+  letter-spacing: 3px;
+  color: #fff;
+  width: 100%;
 }
 .detail {
+  display: inline-block;
+  width: 100%;
   background-color: white;
+  text-align: center;
+  height: fit-content;
 }
-p {
-  margin: 0;
+
+.hashTagContent {
+  width: 70%;
+  display: inline-block;
 }
-.hashtag span {
+
+.hashTag,
+.hashTagClicked {
   display: inline-block;
   border-radius: 52px;
   background-color: #d1d1d1;
-  padding: 8px 50px;
+  padding: 0.5%;
   margin: 0.5%;
-  font-weight: bold;
-  /* width로 길이 지정해주기*/
+  width: 8%;
+  font-size: 17px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hashTagClicked {
+  background-color: #ffa455;
+  color: white;
+}
+.selectButton {
+  border-radius: 52px;
+  width: 12%;
+  background-color: #ffa455;
+  color: white;
+  font-size: 1em;
+  padding: 0.5%;
+  margin: 1.5%;
+  display: inline-block;
+  font-weight: 1000;
+  cursor: pointer;
 }
 .maincontent {
   background-color: #ccc7c1;
   text-align: center;
-  height: 700px;
+  height: 70%;
+  display: inline-block;
 }
 .cafelist,
 .showcafe {
-  width: 30%;
-  height: 550px;
+  width: 32%;
+  height: 90%;
   background-color: white;
-  margin: 75px 10px;
+  margin: 4% 2% 1% 2%;
   display: inline-block;
-  text-align: center;
   border-radius: 17px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
 }
-.backWard,
-.showWhatSelect {
-  font-size: 22px;
-  letter-spacing: 3px;
-  color: #fff;
+.cafe {
+  display: inline-block;
+  width: 85%;
+  height: 25%;
+  margin: 8% 0 0 4%;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+}
+.cafelist::-webkit-scrollbar {
+  width: 15px;
+  border-radius: 0 17px 17px 0;
+  background-color: black;
+}
+.cafelist::-webkit-scrollbar-thumb {
+  background-color: rgb(194, 190, 185);
+  background-clip: padding-box;
+  border-radius: 17px;
+  border: 3px solid transparent;
+}
+.cafelist::-webkit-scrollbar-track {
+  background-color: rgb(243, 241, 240);
+  border-radius: 0 17px 17px 0;
 }

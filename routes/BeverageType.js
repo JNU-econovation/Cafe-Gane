@@ -1,7 +1,7 @@
 var express=require('express');
 var router=express.Router();
 
-const total=require("../client/total.js");
+const total = require("../client/total.js");
 
 var mysqlConnection=require("../model/database.js");
 const Connection = require('mysql/lib/Connection');
@@ -9,15 +9,12 @@ var conn=mysqlConnection.init();
 mysqlConnection.open(conn);
 
 //카페인 음료 종류 보내기 
+//Menu?IsCaffeine=1'
 
-
-/*
-/IsCaffeine?IsCaffein=1
-*/
-router.get('/IsCaffeine',function(req,res){
-    var IsCaffeineNum=req.query.IsCaffeineNum;
-    var CaffeinType='SELECT distinct type from cafe.menu where isCaffein=?';
-    conn.query(CaffeinType,IsCaffeineNum,function(err,result){
+router.get('/Menu',function(req,res){
+    var CaffeinType='SELECT distinct type FROM cafe.menu WHERE isCaffein=?';
+    var isCaffeineNum=req.query.IsCaffeine;
+    conn.query(CaffeinType,isCaffeineNum,function(err,result){
         if(err){
             console.log("caffeintype error!");
         }else{
@@ -25,10 +22,9 @@ router.get('/IsCaffeine',function(req,res){
             for(var data of result){
                 datalist.push(data.type);
             }
-
-            const MenuListHTML = total.makeMenuListHTML(datalist);
-            const rememberHTML=total.makeRememberMenuHTML(datalist);
-            const menuHTML = total.makeMenuHTML(MenuListHTML,IsCaffeineNum,rememberHTML);
+            const menuListHTML = total.makeMenuListHTML(datalist, isCaffeineNum);
+            const menuBodyHTML = total.makeMenuBodyHTML(menuListHTML, isCaffeineNum);
+            const menuHTML = total.makeBodyHTML(menuBodyHTML);
             return res.send(menuHTML);
         }
     })

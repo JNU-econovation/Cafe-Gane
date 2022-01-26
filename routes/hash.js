@@ -83,34 +83,3 @@ router.get('/Beforehash',function(req,res){//url확인하고 변경하기
 });
 
 
-
-
-
-router.get('/Afterhash',function(req,res){//url확인하고 변경하기
-    var IsCaffeineNum=req.query.IsCaffeineNum;
-    var type=req.query.type;
-    var hash=req.query.hash;//해시태그 문자열로 받음
-    var arr_hash=str.split(",");//해시태그 배열에 넣음
-
-    let CafeSort="SELECT menu.menu,menu.price,store.name,store.address,store.time,store.phone,store.image\
-    FROM cafe.hash \
-    INNER JOIN hash_has_menu \
-    ON hash.id=hash_has_menu.hash_id\
-    INNER JOIN cafe.menu\
-    ON menu.id=hash_has_menu.menu_id\
-    INNER JOIN cafe.store\
-    ON store.id=menu.store_id\
-    WHERE menu.isCaffein=? and menu.type=? and hash.name IN (";
-    CafeSort+=arr_hash.join();
-    CafeSort+=")";
-    CafeSort+="ORDER BY menu.price";   
-
-
-/*
-SELECT * FROM cafe.menu;
-WEHRE price in (2000,3000);
-
-SELECT * FROM cafe.menu;
-WHERE (price=2000) OR (price=3000);
-*/
-})

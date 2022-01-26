@@ -11,15 +11,13 @@ body {
 }
 .header {
   background-color: white;
-  z-index: 1;
   position: float;
-  height: 8.5%;
+  height: fit-content;
   width: 100%;
 }
 .mainlogo {
-  height: 100%;
-  width: auto;
-  padding: 0% 2%;
+  width: 8%;
+  padding: 1% 2%;
 }
 .beverage {
   width: 300px;

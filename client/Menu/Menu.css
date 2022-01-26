@@ -8,36 +8,39 @@ body {
   height: 100%;
   width: 100%;
 }
-.header a {
-  display: inline-block;
-  margin: 0px;
-  height: 100%;
-  width: 100%;
-}
 .header {
   background-color: white;
   position: float;
-  height: 8.5%;
+  height: fit-content;
   width: 100%;
 }
 .mainlogo {
-  height: 55%;
-  width: auto;
-  padding: 0px;
+  width: 8%;
   margin: 1% 2%;
 }
 .startbar {
-  height: 11.5%;
+  height: fit-content;
   width: 100%;
   background-color: #564a41;
   display: flex;
-  align-items: center;
-  justify-content: center;
+}
+.backward {
+  position: absolute;
+  padding: 2.5% 5%;
+}
+.start {
+  text-align: center;
+  padding: 2% 30%;
+  font-size: 1.2em;
+  letter-spacing: 3px;
+  color: #fff;
+  width: 100%;
 }
 .selectContent {
   background-color: #ccc7c1;
-  height: 73.5%;
+  height: 80%;
   text-align: center;
+  padding: 0;
 }
 .selectwordKR {
   height: 50px;
@@ -50,19 +53,22 @@ body {
   font-size: 15px;
   padding-top: 1.5%;
 }
-.beverageName {
-  margin: 8% 15%;
+.beverageName0 {
+  margin: 5% 20%;
+}
+.beverageName1 {
+  margin: 5% 10%;
 }
 
 .menu {
   display: inline-block;
   border-radius: 52px;
   background-color: #fff;
-  padding: 12px 50px;
+  padding: 12px 30px;
   margin: 1%;
   font-weight: bold;
-  width: 85px;
-  font-size: 18px;
+  width: 13%;
+  font-size: 1.1em;
   color: black;
   text-decoration: none;
 }
@@ -71,13 +77,22 @@ body {
   background: #ffa455;
   color: black;
 }
-
-.bottombar {
-  height: 6.5%;
-  background-color: #564a41;
-}
 .start {
-  font-size: 22px;
+  font-size: 1.5em;
   letter-spacing: 3px;
   color: #fff;
+  text-align: center;
+  padding: 2% 30%;
+  width: 100%;
+}
+.backward {
+  position: absolute;
+  padding: 2.5% 5%;
+}
+.floor {
+  width: 100%;
+  background-color: #ccc7c1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
