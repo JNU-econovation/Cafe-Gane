@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카페가네</title>
+    <link href="../IsCaffeine/IsCaffeine.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./IsCaffeine.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>카페가네</title>
-  <link href="../IsCaffeine/IsCaffeine.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-  </script>
-</head>
-
-<body>
-  <div class="header">
-    <div onclick="location.href='/'">
-      <img class="mainlogo" src="../image/mainlogo.png">
-    </div>
-  </div>
-  <div class="startbar">
-    <div class="start">
-      맞춤형 CAFE 찾기, Start!
-    </div>
-  </div>
-
-  <div class="selectContent">
-    <div class="selectwordKR">
-      <span style="background-color: #ffa455;"><strong>카페인 여부</strong></span>를 선택해주세요
-      <hr style="border: 0.5px solid black; margin:0.5% auto" width="480px">
-    </div>
-    <div class="selectwordEN">
-      Please choose caffeine or not
-    </div>
-    <div class="caffeineButton">
-      <div onclick="location.href='/IsCaffeine?IsCaffeine=1'; sessionStorage.setItem('isCaffeine', '1')">
-        <img class="caffeine"  src="../image/caffeine.png" >
-      </div>
-      <div onclick="location.href='/IsCaffeine?IsCaffeine=0'; sessionStorage.setItem('isCaffeine', '0')">
-        <img class="nonCaffeine" src="../image/noncaffeine.png">
+  <body>
+    <div class="header">
+      <div onclick="location.href='/'">
+        <img class="mainlogo" src="../image/mainlogo.png" />
       </div>
     </div>
-    <img class="floor" src="../image/floor.png" />
+    <div class="startbar">
+      <div class="start">맞춤형 CAFE 찾기, Start!</div>
+    </div>
 
-  </div>
-</body>
-
+    <div class="selectContent">
+      <div class="selectwordKR">
+        <span style="background-color: #ffa455"
+          ><strong>카페인 여부</strong></span
+        >를 선택해주세요
+        <hr
+          style="border: 0.5px solid black; margin: 0.5% auto"
+          width="480px"
+        />
+      </div>
+      <div class="selectwordEN">Please choose caffeine or not</div>
+      <div class="caffeineButton">
+        <div onclick="onClickHandler1()">
+          <img class="caffeine" src="../image/caffeine.png" />
+        </div>
+        <div onclick="onClickHandler2()">
+          <img class="nonCaffeine" src="../image/noncaffeine.png" />
+        </div>
+      </div>
+      <img class="floor" src="../image/floor.png" />
+    </div>
+  </body>
 </html>

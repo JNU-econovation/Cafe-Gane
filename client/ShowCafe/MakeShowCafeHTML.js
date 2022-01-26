@@ -1,4 +1,4 @@
-const makeShowCafeBodyHTML = function(whatSelect, hashTagList){
+const makeShowCafeBodyHTML = function (whatSelect, hashTagList, cafeList) {
   return `
   <div class="header">
   <div onclick="location.href='/'">
@@ -12,7 +12,7 @@ const makeShowCafeBodyHTML = function(whatSelect, hashTagList){
     onclick="location.href='../Menu/Menu.html'"
     height="20px"
   />
-  <div class="showWhatSelect">${whatSelect}</div>
+ ${whatSelect}
 </div>
 <div class="detail">
   <div
@@ -35,83 +35,79 @@ const makeShowCafeBodyHTML = function(whatSelect, hashTagList){
   </div>
 </div>
 <div class="maincontent">
-  <div class="cafelist" style="overflow: auto">
-    <div class="cafe">
-      <div class="cafeImage"></div>
-      <div class="textcontent"></div>
-    </div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
+  <div class="cafeList" style="overflow: auto">
+    <div class="settingBox"></div>
+    ${cafeList}
   </div>
-  <div class="showcafe">
-    <div class="cafeImage">
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
+  <div class="showCafe">
+    <div class="cafeInformation">
+      <div class="cafeImageLarge">
+        <img src="../image/noInformation.png" />
+      </div>
     </div>
   </div>
 </div>
 <img class="ShowCafefloor" src="../image/floor.png" />
-  `
-}
+  `;
+};
 
-const makeHashTagList = function(hashTagList){
+const makeCafeListHTML = function (cafeList) {
+  return `
+  ${cafeList
+    .map(
+      (list) =>
+        "<div class='cafe'>" +
+        "<div class='cafeImageContent'>" +
+        "<img class='cafeImageSmall' src='" +
+        list.image +
+        "'></div>" +
+        "<div class='cafeTextContent'>" +
+        "<div class='cafeName'>" +
+        list.store_name +
+        "</div>" +
+        "<div class='cafeMenu'>" +
+        list.menu_name +
+        "</div>" +
+        "<div class='cafePrice'>" +
+        list.price +
+        "원" +
+        "</div></div></div>"
+    )
+    .join("")}
+  `;
+};
+
+const makeHashTagList = function (hashTagList) {
   return `
   ${hashTagList
     .map(
       (list) =>
-        "<a class='hashTag' id='" +
-        list +
-        "' href=" +
-        "/" +
+        "<div class='hashTag' id='" +
         list +
         "style='cursor:pointer'>" +
         list +
-        "</a>"
+        "</div>"
     )
     .join("")}
 `;
-}
-const makeWhatSelectHTML=function(){
-  const isCaffeineNum = sessionStorage.getItem("isCaffeineNum");
-    const menu = sessionStorage.getItem("menu");
-    const isCaffeine;
-    if (isCaffeineNum === 1){
-     isCaffeine = "카페인";
-    }
-    else{
-     isCaffeine = "논카페인"
-    }
-    return `${isCaffeine}>${menu}`;
-}
+};
+const makeWhatSelectHTML = function (isCaffeineNum, menu) {
+  let isCaffeine = "Caffeine";
+  if (isCaffeineNum === 1) {
+    isCaffeine = "카페인";
+  } else {
+    isCaffeine = "논카페인";
+  }
+  return (
+    `<div class='showWhatSelect' data-is-caffeine=${isCaffeineNum} data-menu-data=${menu}>
+  ${isCaffeine} > 
+  ${menu}` + "</div>"
+  );
+};
 
 module.exports = {
-  makeShowCafeBodyHTML, 
-  makeHashTagList, 
-  makeWhatSelectHTML
+  makeShowCafeBodyHTML,
+  makeHashTagList,
+  makeCafeListHTML,
+  makeWhatSelectHTML,
 };

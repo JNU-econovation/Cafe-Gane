@@ -1,7 +1,21 @@
-const { amuguna1 } = require("../MakeMenuHTML");
-const { amuguna2 } = require("../MakeShowCafeHTML");
+const {
+  makeMenuListHTML,
+  makeMenuBodyHTML,
+} = require("../client/Menu/MakeMenuHTML.js");
+const {
+  makeShowCafeBodyHTML,
+  makeHashTagList,
+  makeCafeListHTML,
+  makeWhatSelectHTML,
+} = require("../client/ShowCafe/MakeShowCafeHTML.js");
 
 module.exports = {
+  makeMenuListHTML,
+  makeMenuBodyHTML,
+  makeShowCafeBodyHTML,
+  makeHashTagList,
+  makeCafeListHTML,
+  makeWhatSelectHTML,
   makeBodyHTML: function (body) {
     return `
     <!DOCTYPE html>
@@ -12,11 +26,12 @@ module.exports = {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>카페가네</title>
       <link href="../Menu/Menu.css" rel="stylesheet">
+      <link href="../ShowCafe/ShowCafe.css" rel="stylesheet">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-      <script src="../Menu/Menu.js></script>
-      <script src="../ShowCafe/ShowCafe.js></script>
+      <script defer src="../Menu/Menu.js"></script>
+      <script defer src="../ShowCafe/ShowCafe.js"></script>
     </head>
     <body>
       ${body}
@@ -40,7 +55,7 @@ module.exports = {
             )}}'"
             height="20px"
           />
-          <div class="showWhatSelect">${whatSelect}</div>
+          ${whatSelect}
         </div>
         <div class="detail">
           <div

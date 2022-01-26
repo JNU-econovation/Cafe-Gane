@@ -3,16 +3,11 @@ const makeMenuListHTML = function (menuList) {
   ${menuList
     .map(
       (list) =>
-        "<a class='menu' id='" +
+        "<div class='menu' id='" +
         list +
-        "' href=" +
-        "/BeforeHash?IsCaffeine=" +
-        sessionStorage.getItem("isCaffeineNum") +
-        "&type=" +
+        "' style='cursor:pointer'>" +
         list +
-        ">" +
-        list +
-        "</a>"
+        "</div>"
     )
     .join("")}
 `;
@@ -21,7 +16,7 @@ const makeMenuListHTML = function (menuList) {
 };
 
 const makeMenuBodyHTML = function (menuList, isCaffeineNum) {
-  return `
+  return ` 
   <div class="header">
   <div onclick="location.href='/'">
     <img class="mainlogo" src="../image/mainlogo.png">
@@ -47,7 +42,7 @@ const makeMenuBodyHTML = function (menuList, isCaffeineNum) {
   <div class="selectwordEN">
     Please choose beverage
   </div>
-  <div class="beverageName${isCaffeineNum}">
+  <div class="beverageName${isCaffeineNum}" id="menuList" data-is-caffeine=${isCaffeineNum}>
     ${menuList}
   </div>
   <img class="floor" src="../image/floor.png" />

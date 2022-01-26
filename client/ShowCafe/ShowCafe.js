@@ -15,15 +15,16 @@ for (let i = 0; i < hash.length; i++) {
     }
   });
 }
-
-const select = document.querySelector(".selectButton");
-select.onclick = function () {
-  console.log("호출");
-  sessionStorage.setItem("hashTag", selectHashTagList);
-  location.href = `/AfterHash?IsCaffeine=${sessionStorage.getItem(
-    "isCaffeine"
-  )}&type=${sessionStorage.getItem("menu")}&hash="${sessionStorage.getItem(
-    "hashTag"
-  )}";`;
-  console.log(sessionStorage.getItem("hashTag"));
+const whatSelect = document.querySelector(".showWhatSelect");
+const afterIsCaffeineNum = whatSelect.dataset.isCaffeine;
+const selectMenu = whatSelect.dataset.menuData;
+console.dir(whatSelect);
+const selectButton = document.querySelector(".selectButton");
+selectButton.onclick = function () {
+  location.href = `/AfterHash?IsCaffeine=${afterIsCaffeineNum}&"${selectMenu}&${selectHashTagList}"`;
 };
+
+const cafeSelect = document.querySelectorAll(".cafe");
+for (let i = 0; i < cafeSelect.length; i++) {
+  cafeSelect[i].addEventListener("click", (event) => {});
+}
