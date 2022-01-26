@@ -35,19 +35,14 @@ router.get('/Beforehash',function(req,res){
     conn.query(CafeSort,params,function(err,result){
         if(err)
         {
-            console.log("Hash send error!");
+            console.log("HashTag send error!");
         }else{
             var datalist=[];
             for(var data of result){
                 datalist.push(data.type);//"수박,바나나,딸기"
             }
-                /*
-                <client>함수랑 연결
-                const MenuListHTML = total.makeMenuListHTML(datalist);
-                const rememberHTML=total.makeRememberMenuHTML(datalist);
-                const menuHTML = total.makeMenuHTML(MenuListHTML,IsCaffeineNum,rememberHTML);
-                return res.send(menuHTML);
-                */
+                
+                //<client>함수랑 연결
         }
     })
     next();
@@ -58,15 +53,7 @@ router.get('/Beforehash',function(req,res){//url확인하고 변경하기
     var IsCaffeineNum=req.query.IsCaffeineNum;
     var type=req.query.type;
 
-    //db -> join 하기
-    /*
-    SELECT *
-    FROM cafe.menu
-    LEFT JOIN cafe.store
-    ON menu.store_id=store.id
-    LEFT JOIN cafe.hash
-    ON  cafe. 
-    */
+
    let CafeSort="SELECT menu.menu,menu.price,store.name,store.address,store.time,store.phone,store.image\
                FROM cafe.hash \
                INNER JOIN hash_has_menu \
@@ -88,13 +75,9 @@ router.get('/Beforehash',function(req,res){//url확인하고 변경하기
         for(var data of result){
             datalist.push(data);//어떻게 보내지는지 확인하기
         }
-            /*
-            <client>함수랑 연결
-            const MenuListHTML = total.makeMenuListHTML(datalist);
-            const rememberHTML=total.makeRememberMenuHTML(datalist);
-            const menuHTML = total.makeMenuHTML(MenuListHTML,IsCaffeineNum,rememberHTML);
-            return res.send(menuHTML);
-            */
+            
+            //<client>함수랑 연결
+
     }
 })
 });
@@ -130,4 +113,4 @@ WEHRE price in (2000,3000);
 SELECT * FROM cafe.menu;
 WHERE (price=2000) OR (price=3000);
 */
-
+})
