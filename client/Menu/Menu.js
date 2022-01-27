@@ -4,6 +4,7 @@ const isCaffeineNum = menuList.dataset.isCaffeine;
 
 for (let i = 0; i < menu.length; i++) {
   menu[i].addEventListener("click", (event) => {
-    location.href = `/BeforeHash?IsCaffeine=${isCaffeineNum}&${event.target.textContent}`;
+    let selectMenu = event.target.textContent;
+    location.href = `/BeforeHash?IsCaffeine=${isCaffeineNum}&menu=${selectMenu}`;
   });
 }

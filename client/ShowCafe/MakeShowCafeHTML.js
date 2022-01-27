@@ -1,4 +1,9 @@
-const makeShowCafeBodyHTML = function (whatSelect, hashTagList, cafeList) {
+const makeShowCafeBodyHTML = function (
+  whatSelect,
+  hashTagList,
+  cafeList,
+  selectCafe
+) {
   return `
   <div class="header">
   <div onclick="location.href='/'">
@@ -39,13 +44,7 @@ const makeShowCafeBodyHTML = function (whatSelect, hashTagList, cafeList) {
     <div class="settingBox"></div>
     ${cafeList}
   </div>
-  <div class="showCafe">
-    <div class="cafeInformation">
-      <div class="cafeImageLarge">
-        <img src="../image/noInformation.png" />
-      </div>
-    </div>
-  </div>
+  ${selectCafe}
 </div>
 <img class="ShowCafefloor" src="../image/floor.png" />
   `;
@@ -56,7 +55,9 @@ const makeCafeListHTML = function (cafeList) {
   ${cafeList
     .map(
       (list) =>
-        "<div class='cafe'>" +
+        "<div class='cafe' id='" +
+        list.store_name +
+        "'>" +
         "<div class='cafeImageContent'>" +
         "<img class='cafeImageSmall' src='" +
         list.image +
@@ -77,7 +78,13 @@ const makeCafeListHTML = function (cafeList) {
   `;
 };
 
-const makeHashTagList = function (hashTagList) {
+const selectCafeList = function (cafeList) {
+  for (let i = 0; i < cafeList.length; i++) {
+    selectCafeList[i] = cafeList[i];
+  }
+};
+
+const makeHashTagListHTML = function (hashTagList) {
   return `
   ${hashTagList
     .map(
@@ -104,10 +111,46 @@ const makeWhatSelectHTML = function (isCaffeineNum, menu) {
   ${menu}` + "</div>"
   );
 };
+const makeSelectCafeHTML = function (selectCafe) {
+  return `
+  <div class='showCafe'>
+  <div class='largeCafeImageContent'>
+    <img
+      class='largeCafeImage'
+      src='
+      ${selectCafe.image} 
+      '
+    />
+  </div>
+  <div class='largeCafeTextContent'>
+  <span class='largeCafeMenu'>
+    ${selectCafe.menu_name} &nbsp;
+    </span>
+    <span class='largeMenuPrice'>
+    ${selectCafe.price}원
+    </span>  
+  <div class='largeCafeName'>
+    
+   ${selectCafe.store_name} 
+    </div>
+  
+    <div class='largeCafePhone'>
+    ${selectCafe.phone} 
+    </div>
+    <div class='largeCafeTime'>
+    ${selectCafe.time} 
+    </div>
+    <div class='largeCafeAddress'>
+    ${selectCafe.address} +
+    </div>
+  </div>
+</div>"`;
+};
 
 module.exports = {
   makeShowCafeBodyHTML,
-  makeHashTagList,
+  makeHashTagListHTML,
   makeCafeListHTML,
   makeWhatSelectHTML,
+  makeSelectCafeHTML,
 };

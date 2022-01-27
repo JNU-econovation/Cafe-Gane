@@ -43,13 +43,26 @@ app.get("/", function (req, res) {
       time: "평일 9:00 - 22:00 주말 12:00 – 22:00",
     },
   ];
-  const hashTagList = template.makeHashTagList(result);
+  const select = {
+    address: "광주광역시 북구 용주로30번길 81",
+    image:
+      "https://cafeganeimagefile.s3.ap-northeast-2.amazonaws.com/cafe_image_one.jpg",
+    menu_name: "바닐라 라떼",
+    phone: "062-525-7755",
+    price: "3800",
+    store_name: "비티씨",
+    time: "평일 9:00 - 22:00 주말 12:00 – 22:00",
+  };
+
+  const hashTagList = template.makeHashTagListHTML(result);
   const whatSelect = template.makeWhatSelectHTML(1, "아메리카노");
   const cafeList = template.makeCafeListHTML(cafeResult);
+  const selectCafe = template.makeSelectCafeHTML(select);
   const showCafeBody = template.makeShowCafeBodyHTML(
     whatSelect,
     hashTagList,
-    cafeList
+    cafeList,
+    selectCafe
   );
   const showCafe = template.makeBodyHTML(showCafeBody);
 

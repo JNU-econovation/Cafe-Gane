@@ -18,13 +18,15 @@ for (let i = 0; i < hash.length; i++) {
 const whatSelect = document.querySelector(".showWhatSelect");
 const afterIsCaffeineNum = whatSelect.dataset.isCaffeine;
 const selectMenu = whatSelect.dataset.menuData;
-console.dir(whatSelect);
 const selectButton = document.querySelector(".selectButton");
 selectButton.onclick = function () {
-  location.href = `/AfterHash?IsCaffeine=${afterIsCaffeineNum}&"${selectMenu}&${selectHashTagList}"`;
+  location.href = `/AfterHash?IsCaffeine=${afterIsCaffeineNum}&type=${selectMenu}&"${selectHashTagList}"`;
 };
 
 const cafeSelect = document.querySelectorAll(".cafe");
 for (let i = 0; i < cafeSelect.length; i++) {
-  cafeSelect[i].addEventListener("click", (event) => {});
+  cafeSelect[i].addEventListener("click", (event) => {
+    let cafeName = event.target.id;
+    location.href = `/AfterSelectCafe?IsCaffeine=${afterIsCaffeineNum}type=${selectMenu}&"${selectHashTagList}"&${cafeName}`;
+  });
 }

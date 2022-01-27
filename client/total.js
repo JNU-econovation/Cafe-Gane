@@ -4,18 +4,20 @@ const {
 } = require("../client/Menu/MakeMenuHTML.js");
 const {
   makeShowCafeBodyHTML,
-  makeHashTagList,
+  makeHashTagListHTML,
   makeCafeListHTML,
   makeWhatSelectHTML,
+  makeSelectCafeHTML,
 } = require("../client/ShowCafe/MakeShowCafeHTML.js");
 
 module.exports = {
   makeMenuListHTML,
   makeMenuBodyHTML,
   makeShowCafeBodyHTML,
-  makeHashTagList,
+  makeHashTagListHTML,
   makeCafeListHTML,
   makeWhatSelectHTML,
+  makeSelectCafeHTML,
   makeBodyHTML: function (body) {
     return `
     <!DOCTYPE html>
@@ -37,56 +39,6 @@ module.exports = {
       ${body}
     </body>
     </html>
-    `;
-  },
-  makeShowCafeHTML: function (whatSelect, change) {
-    return `
-        <div class="header">
-          <div onclick="location.href='/'">
-            <img class="mainlogo" src="../image/mainlogo.png" />
-          </div>
-        </div>
-        <div class="showbar">
-          <img
-            class="backward"
-            src=" ../image/backward.png"
-            onclick="location.href='/IsCaffeine=${sessionStorage.getItem(
-              "IsCaffeine"
-            )}}'"
-            height="20px"
-          />
-          ${whatSelect}
-        </div>
-        <div class="detail">
-          <div
-            style="
-              color: #564a41;
-              font-size: 18px;
-              font-weight: 500;
-              margin-top: 1%;
-            "
-          >
-            추가 세부설정
-          </div>
-          <div style="color: #707070; font-size: 15px; margin-bottom: 1%">
-            부가적인 설정으로 나만의 음료를 즐겨보세요!
-          </div>
-          <div class="hashTagContent">
-            ${change}
-            <br />
-            <div class="selectButton">맞춤카페 찾기</div>
-          </div>
-        </div>
-        <div class="maincontent">
-          <div class="cafelist" style="overflow: auto">
-            <div class="cafe">
-              <div class="cafeImage"></div>
-              <div class="textcontent"></div>
-            </div>
-          </div>
-          <div class="showcafe"></div>
-        </div>
-        <div class="bottombar"></div> 
     `;
   },
 };
