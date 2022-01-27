@@ -22,10 +22,11 @@ router.get('/Menu',function(req,res){
             for(var data of result){
                 datalist.push(data.type);
             }
-            const menuListHTML = total.makeMenuListHTML(datalist, isCaffeineNum);
-            const menuBodyHTML = total.makeMenuBodyHTML(menuListHTML, isCaffeineNum);
-            const menuHTML = total.makeBodyHTML(menuBodyHTML);
-            return res.send(menuHTML);
+            const menuList = total.makeMenuListHTML(datalist, isCaffeineNum);
+            const menuBody = total.makeMenuBodyHTML(menuList, isCaffeineNum);
+            const menu = total.makeBodyHTML(menuBody);
+          
+            res.send(menu);
         }
     })
 });

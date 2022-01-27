@@ -1,4 +1,10 @@
-const makeShowCafeBodyHTML = function(whatSelect, hashTagList){
+const makeShowCafeBodyHTML = function (
+  IsCaffeineNum,
+  whatSelect,
+  hashTagList,
+  cafeList,
+  selectCafe
+) {
   return `
   <div class="header">
   <div onclick="location.href='/'">
@@ -9,10 +15,10 @@ const makeShowCafeBodyHTML = function(whatSelect, hashTagList){
   <img
     class="backward"
     src=" ../image/backward.png"
-    onclick="location.href='../Menu/Menu.html'"
+    onclick="location.href='../Menu/?IsCaffeine=${IsCaffeineNum}'"
     height="20px"
   />
-  <div class="showWhatSelect">${whatSelect}</div>
+ ${whatSelect}
 </div>
 <div class="detail">
   <div
@@ -35,83 +41,117 @@ const makeShowCafeBodyHTML = function(whatSelect, hashTagList){
   </div>
 </div>
 <div class="maincontent">
-  <div class="cafelist" style="overflow: auto">
-    <div class="cafe">
-      <div class="cafeImage"></div>
-      <div class="textcontent"></div>
-    </div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
-    <div class="cafe"></div>
+  <div class="cafeList" style="overflow: auto">
+    <div class="settingBox"></div>
+    ${cafeList}
   </div>
-  <div class="showcafe">
-    <div class="cafeImage">
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-      <img src="../image/noInformation.png" />
-    </div>
+  <div class='showCafe'>
+  ${selectCafe}
   </div>
 </div>
 <img class="ShowCafefloor" src="../image/floor.png" />
-  `
-}
+  `;
+};
 
-const makeHashTagList = function(hashTagList){
+const makeCafeListHTML = function (cafeList) {
+  return `
+  ${cafeList
+    .map(
+      (list) =>
+        "<div class='cafe'id='" +
+        list.store_name +
+        "'>" +
+        "<div class='cafeImageContent'>" +
+        "<img class='cafeImageSmall' src='" +
+        list.image +
+        "'></div>" +
+        "<div class='cafeTextContent'>" +
+        "<div class='cafeName'>" +
+        list.store_name +
+        "</div>" +
+        "<div class='cafeMenu'>" +
+        list.menu_name +
+        "</div>" +
+        "<div class='cafePrice'>" +
+        list.price +
+        "원" +
+        "</div></div></div>"
+    )
+    .join("")}
+  `;
+};
+
+const makeHashTagListHTML = function (hashTagList) {
   return `
   ${hashTagList
     .map(
       (list) =>
-        "<a class='hashTag' id='" +
-        list +
-        "' href=" +
-        "/" +
+        "<div class='hashTag' id='" +
         list +
         "style='cursor:pointer'>" +
         list +
-        "</a>"
+        "</div>"
     )
     .join("")}
 `;
-}
-const makeWhatSelectHTML=function(){
-  const isCaffeineNum = sessionStorage.getItem("isCaffeineNum");
-    const menu = sessionStorage.getItem("menu");
-    const isCaffeine=0;
-    if (isCaffeineNum === 1){
-     isCaffeine = "카페인";
-    }
-    else{
-     isCaffeine = "논카페인"
-    }
-    return `${isCaffeine}>${menu}`;
-}
+};
+const makeWhatSelectHTML = function (isCaffeineNum, menu) {
+  let isCaffeine = "Caffeine";
+  if (isCaffeineNum === 1) {
+    isCaffeine = "카페인";
+  } else {
+    isCaffeine = "논카페인";
+  }
+  return (
+    `<div class='showWhatSelect' data-is-caffeine=${isCaffeineNum} data-menu-data=${menu}>
+  ${isCaffeine} > 
+  ${menu}` + "</div>"
+  );
+};
+const makeBeforeSelectCafeHTML = function () {
+  return `
+  <div class="largeCafeImageContent">
+          <img
+            class="largeCafeImage"
+            src="../image/beforeSelect.png"
+            style="width: 80%; height: 60%; padding: 20% 6% 20% 12%"
+          />
+        </div>
+        <div class="largeCafeTextContent"></div>
+  `;
+};
+const makeSelectCafeHTML = function (selectCafe) {
+  return `
+  <div class='largeCafeImageContent'>
+    <img
+      class='largeCafeImage'
+      src='
+      ${selectCafe[0].image} 
+      '
+    />
+  </div>
+  <div class='largeCafeTextContent'>  
+    <div class='largeCafeName'>
+    ${selectCafe[0].store_name} 
+    </div>
+    <div class='largeCafePhone'>
+    ${selectCafe[0].phone} 
+    </div>
+    <div class='largeCafeTime'>
+    ${selectCafe[0].time} 
+    </div>
+    <div class='largeCafeAddress'>
+    ${selectCafe[0].address}
+    </div>
+  </div>
+"`;
+};
 
 module.exports = {
-  makeShowCafeBodyHTML, 
-  makeHashTagList, 
-  makeWhatSelectHTML
+  makeShowCafeBodyHTML,
+  makeHashTagListHTML,
+  makeCafeListHTML,
+  makeBeforeSelectCafeHTML,
+  makeWhatSelectHTML,
+  makeSelectCafeHTML,
 };

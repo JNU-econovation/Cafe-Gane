@@ -18,15 +18,16 @@ router.get('/Afterhash',function(req,res){
 
     let IsCaffeineNum=req.query.IsCaffeine;
     let menu=req.query.type;
-    let hash=req.query.hashtag;//해시태그 문자열로 받음
-    let arr_hash=hash.split(",");//해시태그 배열에 넣음
+    let hash=req.query.hashtag;
+    let arr_hash=hash.split(",");
     let hashjoin=arr_hash.map(item=>`"${item}"`).join(",");
+    let selectCafe=req.query.CafeNum;
 
     let hashTagSend="SELECT distinct hash.name \
     FROM cafe.hash \
     INNER JOIN hash_has_menu ON hash.id=hash_has_menu.hash_id \
     INNER JOIN cafe.menu ON menu.id=hash_has_menu.menu_id\
-    WHERE menu.isCaffein=? and menu.type=?";
+    WHERE menu.isCaffein=? and menu.type='menu'";
 
     conn.query(hashTagSend, [IsCaffeineNum, menu], function (err, result) {
         if (err) {
@@ -51,25 +52,37 @@ router.get('/Afterhash',function(req,res){
             WHERE menu.isCaffein=? and menu.type=? and hash.name IN (";
             CafeSort+=hashjoin;
             CafeSort+=") ";
-            CafeSort+="ORDER BY menu.price";
+            CafeSort+="ORDER BY menu.price"; 
 
             conn.query(CafeSort, [IsCaffeineNum, menu], function (err, result) {
                 if (err) {
                     console.log("After : Cafe send error!")
                 } else {
-
                     const cafeList = total.makeCafeListHTML(result);
-                    const beforeSelectCafe = total.makeBeforeSelectCafeHTML();
-                    // const selectCafe=total.makeSelectCafeHTML()
-                    const showCafeBody = total.makeShowCafeBodyHTML(
-                        IsCaffeineNum,
-                        whatSelect,
-                        hashTagList,
-                        cafeList,
-                        beforeSelectCafe
-                    );
-                    const showCafe = total.makeBodyHTML(showCafeBody);
-                    res.send(showCafe);
+                    let Cafe="SELECT menu.menu_name, menu.price, store.store_name, store.address, store.time, store.phone, store.image \
+                            FROM cafe.menu \
+                            INNER JOIN cafe.store \
+                            ON menu.store_id=store.id \
+                            WHERE store.store_name=?";
+
+                    conn.query(Cafe,selectCafe,function(err,select){
+                        if(err)
+                        {
+                            console.log("select Cafe Error!");
+                        }
+                        else{
+                            const selectCafe = total.makeSelectCafeHTML(select);
+                            const showCafeBody = total.makeShowCafeBodyHTML(
+                                whatSelect,
+                                hashTagList,
+                                cafeList,
+                                selectCafe
+                            );
+                            const showCafe = total.makeBodyHTML(showCafeBody);
+                            res.send(showCafe);
+                        }
+                    })
+
                 }
             })
 
@@ -77,8 +90,4 @@ router.get('/Afterhash',function(req,res){
 });
 
 })
-
-//`/AfterSelectCafe?IsCaffeine=${afterIsCaffeineNum}&type=${selectMenu}&hashtag="${selectHashTagList}"&CafeName=${cafeName}`;
-
-
 module.exports=router;
